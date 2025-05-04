@@ -1,79 +1,87 @@
-interface LocalizationStrings {
-  [key: string]: {
-    [key: string]: string;
-  };
+// src/data/localization.ts
+
+// ロケールデータの型定義
+interface LocaleData {
+  [key: string]: string | LocaleData; // ネストされた構造を許容
 }
 
-export const localization: LocalizationStrings = {
+// 各言語の翻訳データ (仮。実際にはJSONファイルなどから読み込むべき)
+const translations: { [locale: string]: LocaleData } = {
   en: {
-    // ヘッダー
-    "site_name": "AI Recommendation Optimized Demo Shop",
-    "home": "Home",
-    "beauty": "Beauty",
-    "electronics": "Electronics",
-    "fashion": "Fashion",
-    "tech_explanation": "Technical Explanation",
-    "diagnostic_tool": "Diagnostic Tool",
-    "toggle_optimization": "Toggle AI Optimization",
-    
-    // 商品詳細
-    "product_not_found": "Product not found",
-    "product_details": "Product Details",
-    "price": "Price",
-    "rating": "Rating",
-    "add_to_cart": "Add to Cart",
-    "features": "Features",
-    "specifications": "Specifications",
-    "frequently_asked_questions": "Frequently Asked Questions",
-    "similar_products": "Similar Products",
-    "product_structured_data": "Product Structured Data (JSON-LD)",
-    "structured_data_explanation": "This structured data helps AI understand the product details.",
+    greeting: "Hello",
+    farewell: "Goodbye",
+    category: { // ネストされたカテゴリ
+      electronics: "Electronics",
+      clothing: "Clothing",
+      home: "Home Goods",
+      books: "Books",
+      sports: "Sports & Outdoors",
+    },
+    product: {
+      addToCart: "Add to Cart",
+      details: "Details",
+    },
+    // ... other translations
   },
   ja: {
-    // ヘッダー
-    "site_name": "AI推薦最適化デモショップ",
-    "home": "ホーム",
-    "beauty": "ビューティー",
-    "electronics": "家電",
-    "fashion": "ファッション",
-    "tech_explanation": "技術解説",
-    "diagnostic_tool": "診断ツール",
-    "toggle_optimization": "AI最適化の切替",
-    
-    // 商品詳細
-    "product_not_found": "商品が見つかりません",
-    "product_details": "商品詳細",
-    "price": "価格",
-    "rating": "評価",
-    "add_to_cart": "カートに追加",
-    "features": "特徴",
-    "specifications": "仕様",
-    "frequently_asked_questions": "よくある質問",
-    "similar_products": "類似商品",
-    "product_structured_data": "商品構造化データ (JSON-LD)",
-    "structured_data_explanation": "この構造化データはAIが商品詳細を理解するのに役立ちます。",
-  }
+    greeting: "こんにちは",
+    farewell: "さようなら",
+    category: {
+      electronics: "電化製品",
+      clothing: "衣料品",
+      home: "家庭用品",
+      books: "書籍",
+      sports: "スポーツ・アウトドア",
+    },
+    product: {
+      addToCart: "カートに入れる",
+      details: "詳細",
+    },
+    // ... other translations
+  },
+  // ... other languages
 };
 
-// デフォルト言語を設定
-export const defaultLocale = 'ja';
+// --- ここから修正 ---
 
-// 言語取得関数
+// ローカルストレージからロケールを取得する関数 (定義を先に移動)
 export function getLocale(): string {
-  if (typeof window === 'undefined') return defaultLocale;
-  return localStorage.getItem('locale') || defaultLocale;
+  return localStorage.getItem("locale") || "ja"; // デフォルトは 'ja'
 }
 
-// テキスト取得関数
-export function t(key: string): string {
-  const locale = getLocale();
-  return localization[locale]?.[key] || localization[defaultLocale][key] || key;
-}
+// 現在のロケール (getLocale() の定義後に初期化)
+let currentLocale: string = getLocale();
 
-// 言語切り替え関数
+// ロケールを設定し、ローカルストレージに保存する関数
 export function setLocale(locale: string): void {
-  if (localization[locale]) {
-    localStorage.setItem('locale', locale);
-    window.location.reload();
-  }
+  currentLocale = locale;
+  localStorage.setItem("locale", locale);
+  // 必要であれば、言語変更イベントを発火させるなどの処理を追加
+  // window.dispatchEvent(new Event('languagechange'));
 }
+
+// --- ここまで修正 ---
+
+
+// キーに基づいて翻訳テキストを取得する関数 (ネスト対応)
+export function t(key: string): string {
+  const keys = key.split('.'); // ドット区切りでキーを分割 (例: "category.electronics")
+  let result: string | LocaleData | undefined = translations[currentLocale]; // 現在のロケールの翻訳データを取得
+
+  for (const k of keys) {
+    // result が null でなく、オブジェクトであり、かつキー k を持っているかチェック
+    if (typeof result === 'object' && result !== null && k in result) {
+      // result[k] の型アサーションを追加するか、より安全な型チェックを行う
+      // ここでは、result が LocaleData 型であることを期待してアクセス
+      result = (result as LocaleData)[k];
+    } else {
+      return key; // 見つからない場合はキー自体を返す
+    }
+  }
+
+  // result が最終的に文字列でなければキーを返す
+  return typeof result === 'string' ? result : key;
+}
+
+// 不要な初期化呼び出しはコメントアウトまたは削除
+// setLocale(getLocale());
