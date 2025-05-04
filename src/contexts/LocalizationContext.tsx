@@ -1,5 +1,5 @@
 import React, { createContext, useState, useContext, ReactNode, useEffect } from 'react';
-import { getLocale, setLocale, t as translate } from '../data/localization';
+import { localization, defaultLocale } from '../data/localization';
 
 interface LocalizationContextType {
   locale: string;
@@ -21,8 +21,19 @@ interface LocalizationProviderProps {
   children: ReactNode;
 }
 
+// ローカルストレージから言語設定を取得する関数
+const getStoredLocale = (): string => {
+  if (typeof window === 'undefined') return defaultLocale;
+  return localStorage.getItem('locale') || defaultLocale;
+};
+
+// 翻訳関数
+const translate = (key: string, locale: string): string => {
+  return localization[locale]?.[key] || localization[defaultLocale][key] || key;
+};
+
 export const LocalizationProvider: React.FC<LocalizationProviderProps> = ({ children }) => {
-  const [locale, setLocaleState] = useState(getLocale());
+  const [locale, setLocaleState] = useState(getStoredLocale());
 
   useEffect(() => {
     // HTMLのlang属性を更新
@@ -30,12 +41,17 @@ export const LocalizationProvider: React.FC<LocalizationProviderProps> = ({ chil
   }, [locale]);
 
   const handleSetLocale = (newLocale: string) => {
-    setLocale(newLocale);
-    setLocaleState(newLocale);
+    if (localization[newLocale]) {
+      localStorage.setItem('locale', newLocale);
+      setLocaleState(newLocale);
+    }
   };
 
+  const t = (key: string) => translate(key, locale);
+
   return (
-    <LocalizationContext.Provider value={{ locale, setLocale: handleSetLocale, t: translate }}>
+    <LocalizationContext.Provider value={{ locale, setLocale: handleSetLocale, t }}>
       {children}
     </LocalizationContext.Provider>
   );
+};
