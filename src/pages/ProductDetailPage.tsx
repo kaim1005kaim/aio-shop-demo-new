@@ -1,8 +1,7 @@
 
 // src/pages/ProductDetailPage.tsx
-=======
 // src/pages/ProductDetailPage.tsx の更新版
->>>>>>> 26eab910c894d7e0979da9f3f423bc99bf87a4f8
+
 
 import React from 'react';
 import { useParams } from 'react-router-dom';
@@ -18,8 +17,7 @@ import SuggestedPrompts from '../components/product/SuggestedPrompts';
 import ARViewer from '../components/product/ARViewer';
 
 
-=======
->>>>>>> 26eab910c894d7e0979da9f3f423bc99bf87a4f8
+
 import { products } from '../data/products';
 import { useAIOptimization } from '../contexts/AIOptimizationContext';
 import { useLocalization } from '../contexts/LocalizationContext';
@@ -34,7 +32,7 @@ const ProductDetailPage: React.FC = () => {
   if (!product) {
 
     return <div className="container mx-auto px-4 py-16">{t('product_not_found')}</div>;
-=======
+
     return <div className="container mx-auto px-4 py-16">{t('product_not_found')}          </div>
     </>
   );
@@ -58,7 +56,7 @@ export default ProductDetailPage;
         <ProductComparison />
         <StructuredDataViewer product={product} />
       </div>;
->>>>>>> 26eab910c894d7e0979da9f3f423bc99bf87a4f8
+
   }
 
   return (
@@ -148,5 +146,4 @@ export default ProductDetailPage;
 };
 
 export default ProductDetailPage;
-=======
->>>>>>> 26eab910c894d7e0979da9f3f423bc99bf87a4f8
+
