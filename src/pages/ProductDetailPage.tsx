@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 // src/pages/ProductDetailPage.tsx
 =======
 // src/pages/ProductDetailPage.tsx の更新版
@@ -16,7 +16,7 @@ import StructuredDataViewer from '../components/product/StructuredDataViewer';
 import AIRecommendationScore from '../components/product/AIRecommendationScore';
 import SuggestedPrompts from '../components/product/SuggestedPrompts';
 import ARViewer from '../components/product/ARViewer';
-<<<<<<< HEAD
+
 
 =======
 >>>>>>> 26eab910c894d7e0979da9f3f423bc99bf87a4f8
@@ -32,7 +32,7 @@ const ProductDetailPage: React.FC = () => {
   const product = products.find(p => p.id === productId);
   
   if (!product) {
-<<<<<<< HEAD
+
     return <div className="container mx-auto px-4 py-16">{t('product_not_found')}</div>;
 =======
     return <div className="container mx-auto px-4 py-16">{t('product_not_found')}          </div>
@@ -97,7 +97,7 @@ export default ProductDetailPage;
               { name: product.name, path: `/product/${product.id}` }
             ]}
           />
-<<<<<<< HEAD
+
           
           <div className="flex items-center">
             <div className="flex items-center bg-gray-100 p-1 rounded-md">
