@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 // src/pages/ProductDetailPage.tsx
+=======
+// src/pages/ProductDetailPage.tsx の更新版
+>>>>>>> 26eab910c894d7e0979da9f3f423bc99bf87a4f8
 
 import React from 'react';
 import { useParams } from 'react-router-dom';
@@ -12,7 +16,10 @@ import StructuredDataViewer from '../components/product/StructuredDataViewer';
 import AIRecommendationScore from '../components/product/AIRecommendationScore';
 import SuggestedPrompts from '../components/product/SuggestedPrompts';
 import ARViewer from '../components/product/ARViewer';
+<<<<<<< HEAD
 
+=======
+>>>>>>> 26eab910c894d7e0979da9f3f423bc99bf87a4f8
 import { products } from '../data/products';
 import { useAIOptimization } from '../contexts/AIOptimizationContext';
 import { useLocalization } from '../contexts/LocalizationContext';
@@ -25,7 +32,33 @@ const ProductDetailPage: React.FC = () => {
   const product = products.find(p => p.id === productId);
   
   if (!product) {
+<<<<<<< HEAD
     return <div className="container mx-auto px-4 py-16">{t('product_not_found')}</div>;
+=======
+    return <div className="container mx-auto px-4 py-16">{t('product_not_found')}          </div>
+    </>
+  );
+};
+
+export default ProductDetailPage;
+        </div>
+        
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 mt-6 mb-12">
+          <ProductGallery product={product} />
+          <ProductInfo product={product} />
+        </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+          <AIRecommendationScore product={product} />
+          {isOptimized && <ARViewer product={product} />}
+        </div>
+        
+        <SuggestedPrompts product={product} />
+        <ProductFAQ product={product} />
+        <ProductComparison />
+        <StructuredDataViewer product={product} />
+      </div>;
+>>>>>>> 26eab910c894d7e0979da9f3f423bc99bf87a4f8
   }
 
   return (
@@ -64,6 +97,7 @@ const ProductDetailPage: React.FC = () => {
               { name: product.name, path: `/product/${product.id}` }
             ]}
           />
+<<<<<<< HEAD
           
           <div className="flex items-center">
             <div className="flex items-center bg-gray-100 p-1 rounded-md">
@@ -114,3 +148,5 @@ const ProductDetailPage: React.FC = () => {
 };
 
 export default ProductDetailPage;
+=======
+>>>>>>> 26eab910c894d7e0979da9f3f423bc99bf87a4f8
