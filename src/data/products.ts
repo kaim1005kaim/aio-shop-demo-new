@@ -1,80 +1,81 @@
+// src/data/products.ts を修正
 import { Product } from '../types/product';
 import { categories } from './categories';
 
-// Find categories by ID
+// カテゴリIDからカテゴリを取得する関数
 const getCategoryById = (id: string) => categories.find(c => c.id === id) || categories[0];
 
 export const products: Product[] = [
   // Beauty Category
   {
     id: 'beauty-led-facial',
-    name: 'Advanced LED Facial Device',
-    brand: 'BeautyTech Pro',
+    name: 'アドバンスLEDフェイシャルデバイス',
+    brand: 'ビューティーテックプロ',
     category: getCategoryById('beauty'),
-    price: 129.99,
+    price: 12999,
     rating: 4.7,
-    description: `LED facial device for home use. Helps with skin issues.`,
-    optimizedDescription: `Professional-grade LED facial device with 5 light therapy modes for anti-aging, acne treatment, and skin rejuvenation. Clinically tested to reduce wrinkles by up to 25% in 8 weeks and improve skin texture and tone with regular use.`,
-    shortDescription: `LED facial device for home use.`,
-    optimizedShortDescription: `Professional LED facial device with 5 light therapy modes clinically proven to reduce wrinkles and treat acne.`,
-    metaDescription: `LED facial device to improve skin.`,
-    optimizedMetaDescription: `Advanced LED Facial Device with 5 light therapy modes for anti-aging, acne treatment & skin rejuvenation. FDA-approved, clinically tested to reduce wrinkles by 25% in 8 weeks.`,
+    description: `家庭用LEDフェイシャルデバイス。肌トラブルに効果があります。`,
+    optimizedDescription: `5種類のライトセラピーモードを備えた、プロフェッショナルグレードのLEDフェイシャルデバイス。アンチエイジング、ニキビ治療、肌の若返りに効果的です。8週間で皺を最大25%減少させ、定期的な使用で肌のテクスチャーと色調を改善することが臨床的に証明されています。`,
+    shortDescription: `家庭用LEDフェイシャルデバイス。`,
+    optimizedShortDescription: `5種類のライトセラピーモードを搭載したプロフェッショナルLEDフェイシャルデバイス。シワを減らしニキビを治療する効果が臨床的に証明されています。`,
+    metaDescription: `肌を改善するLEDフェイシャルデバイス。`,
+    optimizedMetaDescription: `アンチエイジング、ニキビ治療、肌の若返りのための5種類のライトセラピーモードを備えた高度なLEDフェイシャルデバイス。FDA承認済み、8週間でシワを25%減少させることが臨床的に証明。`,
     features: [
-      'LED lights',
-      'Rechargeable',
-      'Multiple modes',
-      'Timer function'
+      'LEDライト',
+      '充電式',
+      '複数モード',
+      'タイマー機能'
     ],
     optimizedFeatures: [
-      `5 light therapy modes: Red (anti-aging), Blue (acne), Yellow (inflammation), Green (pigmentation), Purple (cell regeneration)`,
-      `Clinically tested and shown to reduce wrinkles by up to 25% in 8 weeks of regular use`,
-      `Rechargeable lithium-ion battery with 60-minute runtime per charge`,
-      `FDA-approved for home use with built-in safety timer and eye protection`,
-      `Waterproof design (IPX6 rated) for use during your skincare routine`
+      `5種類のライトセラピーモード：レッド（アンチエイジング）、ブルー（ニキビ）、イエロー（炎症）、グリーン（色素沈着）、パープル（細胞再生）`,
+      `臨床試験により、定期的な使用で8週間以内にシワを最大25%減少させることが実証済み`,
+      `1回の充電で60分間使用可能な充電式リチウムイオンバッテリー`,
+      `安全タイマーと目の保護機能を内蔵したFDA承認の家庭用デバイス`,
+      `スキンケアルーティン中に使用できる防水設計（IPX6規格）`
     ],
     specs: {
-      'Dimensions': '6.5 x 3.2 x 1.1 inches',
-      'Weight': '8.5 oz',
-      'Battery': 'Rechargeable lithium-ion, 1200mAh',
-      'Charging Time': '3 hours',
-      'Usage Time': '60 minutes per charge',
-      'Wavelengths': 'Red (630nm), Blue (415nm), Yellow (590nm), Green (520nm), Purple (combination)',
-      'Warranty': '2-year manufacturer warranty'
+      'サイズ': '16.5 x 8.1 x 2.8 cm',
+      '重量': '240g',
+      'バッテリー': '充電式リチウムイオン、1200mAh',
+      '充電時間': '3時間',
+      '使用時間': '1回の充電につき60分',
+      '波長': 'レッド（630nm）、ブルー（415nm）、イエロー（590nm）、グリーン（520nm）、パープル（組み合わせ）',
+      '保証': '2年間のメーカー保証'
     },
     faqs: [
       {
-        question: 'How does it work?',
-        answer: `It uses LED light to help skin.`
+        question: 'どのように機能しますか？',
+        answer: `LEDライトを使用して肌をケアします。`
       },
       {
-        question: 'How often should I use it?',
-        answer: `A few times a week.`
+        question: 'どのくらいの頻度で使用すべきですか？',
+        answer: `週に数回使用してください。`
       },
       {
-        question: 'Is it safe?',
-        answer: `Yes, but avoid looking directly at the light.`
+        question: '安全ですか？',
+        answer: `はい、ただし光を直接見ないようにしてください。`
       }
     ],
     optimizedFaqs: [
       {
-        question: 'How does LED light therapy work for skin improvement?',
-        answer: `LED light therapy works by emitting specific wavelengths of light that penetrate the skin at varying depths. Each color targets different skin concerns: red light (630nm) stimulates collagen production and reduces wrinkles, blue light (415nm) kills acne-causing bacteria, yellow light (590nm) reduces inflammation and redness, green light (520nm) helps with pigmentation, and purple combines benefits for overall skin rejuvenation.`
+        question: 'LEDライトセラピーはどのように肌改善に効果がありますか？',
+        answer: `LEDライトセラピーは、特定の波長の光を放射し、その光が肌の様々な深さに浸透することで機能します。各色は異なる肌の悩みに対応します：赤色光（630nm）はコラーゲン生成を刺激しシワを減少させ、青色光（415nm）はニキビの原因となる細菌を殺菌し、黄色光（590nm）は炎症や赤みを軽減し、緑色光（520nm）は色素沈着に効果があり、紫色光は全体的な肌の若返りのために複数の効果を組み合わせています。`
       },
       {
-        question: 'How often should I use the Advanced LED Facial Device for best results?',
-        answer: `For optimal results, we recommend using the device 3-5 times per week for the first 8 weeks, with each session lasting 10-15 minutes. After achieving your initial results, maintenance sessions of 1-2 times per week will help sustain the improvements. Consistency is key for maximum benefits.`
+        question: '最良の結果を得るために、アドバンスLEDフェイシャルデバイスをどのくらいの頻度で使用すべきですか？',
+        answer: `最適な結果を得るには、最初の8週間は週に3〜5回、各セッション10〜15分間デバイスを使用することをお勧めします。初期の結果を達成した後は、週に1〜2回のメンテナンスセッションで改善を維持できます。最大の効果を得るには、継続的な使用が重要です。`
       },
       {
-        question: 'Is the Advanced LED Facial Device safe for all skin types?',
-        answer: `Yes, the device is FDA-approved and safe for all skin types and tones. The LED technology is non-invasive and doesn't use harmful UV rays. However, if you have a specific skin condition or are using photosensitizing medications, we recommend consulting with a dermatologist before use. Always avoid looking directly at the lights and use the included eye protection.`
+        question: 'アドバンスLEDフェイシャルデバイスはすべての肌タイプに安全ですか？',
+        answer: `はい、デバイスはFDA承認済みで、すべての肌タイプと肌色に安全です。LEDテクノロジーは非侵襲的で、有害な紫外線を使用しません。ただし、特定の肌の状態がある場合や、光感作薬を使用している場合は、使用前に皮膚科医に相談することをお勧めします。常に光を直接見ないようにし、付属の目の保護具を使用してください。`
       },
       {
-        question: 'Can I use the LED device with my regular skincare products?',
-        answer: `For best results, use the device on clean, dry skin before applying serums or moisturizers. This allows the light to penetrate without barriers. After your treatment, you can apply your regular skincare products. Some ingredients like retinol or acids may cause sensitivity when used immediately before or after LED therapy, so we recommend waiting at least 10 minutes between application.`
+        question: '通常のスキンケア製品とLEDデバイスを一緒に使用できますか？',
+        answer: `最良の結果を得るには、清潔で乾いた肌にデバイスを使用してから、美容液や保湿剤を塗布してください。これにより、光が障害物なく浸透できます。トリートメント後、通常のスキンケア製品を使用できます。レチノールや酸などの成分は、LEDセラピーの直前または直後に使用すると敏感になる可能性があるため、塗布の間に少なくとも10分間待つことをお勧めします。`
       },
       {
-        question: 'How soon will I see results from using the LED facial device?',
-        answer: `Most users report seeing initial improvements within 2-4 weeks of consistent use, with significant results becoming visible after 8 weeks. For acne concerns, you may notice improvement sooner, sometimes within the first week. Anti-aging benefits like collagen stimulation and wrinkle reduction take longer as they involve structural changes in the skin.`
+        question: 'LEDフェイシャルデバイスを使用してから、どのくらいで結果が見られますか？',
+        answer: `ほとんどのユーザーは、一貫した使用から2〜4週間以内に初期の改善を報告し、8週間後に顕著な結果が見られます。ニキビの問題については、最初の週から改善が見られることもあります。コラーゲン刺激やシワの減少などのアンチエイジング効果は、肌の構造的変化を伴うため、より長い時間がかかります。`
       }
     ],
     images: [
@@ -83,86 +84,86 @@ export const products: Product[] = [
       'https://images.pexels.com/photos/4047362/pexels-photo-4047362.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
     ],
     imageAlts: [
-      'LED facial device',
-      'Device in use',
-      'Device showing different light modes'
+      'LEDフェイシャルデバイス',
+      '使用中のデバイス',
+      '異なる光モードを表示するデバイス'
     ],
     optimizedImageAlts: [
-      `Advanced LED Facial Device with 5 light therapy modes and ergonomic handle for anti-aging and skin rejuvenation`,
-      `Woman using the Advanced LED Facial Device with red light mode to target wrinkles and stimulate collagen production`,
-      `Advanced LED Facial Device displaying its 5 different colored light therapy modes: red for anti-aging, blue for acne, yellow for inflammation, green for pigmentation, and purple for cell regeneration`
+      `アンチエイジングと肌の若返りのための5種類のライトセラピーモードとエルゴノミックなハンドルを備えた高度なLEDフェイシャルデバイス`,
+      `シワを標的にしてコラーゲン生成を刺激する赤色光モードで高度なLEDフェイシャルデバイスを使用する女性`,
+      `5種類の異なる色のライトセラピーモードを表示する高度なLEDフェイシャルデバイス：アンチエイジング用の赤、ニキビ用の青、炎症用の黄色、色素沈着用の緑、細胞再生用の紫`
     ],
-    optimizedImageAlt: `Advanced LED Facial Device with 5 light therapy modes (red, blue, yellow, green, purple) for anti-aging, acne treatment, and skin rejuvenation`
+    optimizedImageAlt: `アンチエイジング、ニキビ治療、肌の若返りのための5つのライトセラピーモード（赤、青、黄、緑、紫）を備えた高度なLEDフェイシャルデバイス`
   },
   {
     id: 'beauty-vitamin-serum',
-    name: 'Vitamin C Brightening Serum',
-    brand: 'NaturGlow',
+    name: 'ビタミンC ブライトニングセラム',
+    brand: 'ナチュールグロウ',
     category: getCategoryById('beauty'),
-    price: 42.99,
+    price: 4299,
     rating: 4.5,
-    description: `Vitamin C serum for face. Helps brighten skin.`,
-    optimizedDescription: `Potent 20% Vitamin C Brightening Serum with Hyaluronic Acid and Ferulic Acid that visibly brightens skin tone, reduces dark spots, and boosts collagen production for a more radiant complexion. Our stable, non-oxidizing formula ensures maximum efficacy with each application.`,
-    shortDescription: `Vitamin C serum for brightening.`,
-    optimizedShortDescription: `20% Vitamin C Brightening Serum with Hyaluronic Acid & Ferulic Acid to reduce dark spots and boost collagen production.`,
-    metaDescription: `Vitamin C serum to brighten skin.`,
-    optimizedMetaDescription: `20% Vitamin C Brightening Serum with Hyaluronic Acid & Ferulic Acid. Reduces dark spots by 33% in 4 weeks, boosts collagen, and provides antioxidant protection. Dermatologist tested.`,
+    description: `顔用ビタミンCセラム。肌を明るくします。`,
+    optimizedDescription: `ヒアルロン酸とフェルラ酸を配合した高濃度20%ビタミンCブライトニングセラムが、肌のトーンを明るくし、シミを減少させ、コラーゲン生成を促進してより輝く肌へ導きます。安定した非酸化処方により、毎回の使用で最大限の効果を保証します。`,
+    shortDescription: `明るくするためのビタミンCセラム。`,
+    optimizedShortDescription: `シミを減少させコラーゲン生成を促進するヒアルロン酸＆フェルラ酸配合20%ビタミンCブライトニングセラム。`,
+    metaDescription: `肌を明るくするビタミンCセラム。`,
+    optimizedMetaDescription: `ヒアルロン酸＆フェルラ酸配合20%ビタミンCブライトニングセラム。4週間でシミを33%減少させ、コラーゲンを促進し、抗酸化保護を提供。皮膚科医テスト済み。`,
     features: [
-      'Vitamin C',
-      'Brightens skin',
-      'Reduces spots',
-      'Hydrating'
+      'ビタミンC',
+      '肌を明るくする',
+      'シミを減らす',
+      '保湿効果'
     ],
     optimizedFeatures: [
-      `Potent 20% L-Ascorbic Acid (pure Vitamin C) for maximum brightening and collagen stimulation`,
-      `Enhanced with 0.5% Ferulic Acid to stabilize Vitamin C and boost antioxidant protection by 8x`,
-      `Hyaluronic Acid provides deep hydration while allowing the active ingredients to penetrate`,
-      `Airless pump packaging prevents oxidation, ensuring freshness with every use`,
-      `Clinically proven to reduce dark spots by 33% in 4 weeks of regular use`
+      `最大の明るさとコラーゲン刺激のための高濃度20%L-アスコルビン酸（純粋なビタミンC）`,
+      `ビタミンCを安定させ、抗酸化保護を8倍に高める0.5%フェルラ酸を配合`,
+      `ヒアルロン酸が深い保湿を提供しながら、有効成分の浸透を可能にします`,
+      `エアレスポンプ包装が酸化を防ぎ、毎回の使用で新鮮さを確保`,
+      `定期的な使用で4週間以内にシミを33%減少させることが臨床的に証明されています`
     ],
     specs: {
-      'Size': '1 fl oz / 30ml',
-      'pH Level': '3.5 (optimal for Vitamin C absorption)',
-      'Texture': 'Lightweight serum',
-      'Scent': 'Subtle citrus',
-      'Key Ingredients': '20% L-Ascorbic Acid, 0.5% Ferulic Acid, Sodium Hyaluronate, Vitamin E',
-      'Free From': 'Parabens, Sulfates, Phthalates, Synthetic Fragrances',
-      'Shelf Life': '12 months unopened, 3 months after opening'
+      'サイズ': '30ml',
+      'pHレベル': '3.5（ビタミンC吸収に最適）',
+      'テクスチャー': '軽量セラム',
+      '香り': '微かな柑橘系',
+      '主要成分': '20% L-アスコルビン酸、0.5%フェルラ酸、ヒアルロン酸ナトリウム、ビタミンE',
+      '無添加': 'パラベン、硫酸塩、フタル酸エステル、合成香料',
+      '賞味期限': '未開封で12ヶ月、開封後3ヶ月'
     },
     faqs: [
       {
-        question: 'When should I apply this?',
-        answer: `In the morning.`
+        question: 'いつ使用すべきですか？',
+        answer: `朝に使用してください。`
       },
       {
-        question: 'Will it irritate sensitive skin?',
-        answer: `It might, do a patch test first.`
+        question: '敏感肌にも刺激がありますか？',
+        answer: `ある可能性があります。まずパッチテストを行ってください。`
       },
       {
-        question: 'How long does it last?',
-        answer: `About 3 months with daily use.`
+        question: 'どのくらい持ちますか？',
+        answer: `毎日使用して約3ヶ月持ちます。`
       }
     ],
     optimizedFaqs: [
       {
-        question: 'When is the best time to apply Vitamin C Brightening Serum in my skincare routine?',
-        answer: `For optimal results, apply our Vitamin C Brightening Serum in the morning after cleansing and toning, but before moisturizer and sunscreen. Morning application is ideal because Vitamin C provides antioxidant protection against environmental stressors throughout the day. Allow the serum to fully absorb for 60-90 seconds before applying your next product. If you're using other active ingredients like retinol, we recommend using those in your evening routine to avoid potential interactions.`
+        question: 'スキンケアルーティンの中でビタミンCブライトニングセラムを使用するのに最適なタイミングはいつですか？',
+        answer: `最適な結果を得るには、朝、洗顔と化粧水の後、保湿剤と日焼け止めの前にビタミンCブライトニングセラムを塗布してください。朝の使用が理想的です。ビタミンCが一日中環境ストレスに対する抗酸化保護を提供するからです。次の製品を塗布する前に、セラムが完全に吸収されるまで60〜90秒待ってください。レチノールなどの他の有効成分を使用している場合は、潜在的な相互作用を避けるため、それらを夜のルーティンで使用することをお勧めします。`
       },
       {
-        question: 'Is the Vitamin C Brightening Serum suitable for sensitive skin types?',
-        answer: `While our Vitamin C Brightening Serum is formulated to minimize irritation with a pH-balanced formula, those with very sensitive skin should introduce it gradually. We recommend performing a patch test on your inner arm for 24 hours before facial application. Start by using the serum every other day for the first week, then increase to daily use as your skin adjusts. The hyaluronic acid in our formula helps offset potential irritation from the active Vitamin C component.`
+        question: 'ビタミンCブライトニングセラムは敏感肌にも適していますか？',
+        answer: `当社のビタミンCブライトニングセラムはpHバランスの取れた処方で刺激を最小限に抑えるよう設計されていますが、非常に敏感な肌の方は徐々に導入してください。顔に塗布する前に、内腕で24時間パッチテストを行うことをお勧めします。最初の1週間は隔日で使用し、肌が順応するにつれて毎日の使用に増やしてください。当社の処方に含まれるヒアルロン酸は、ビタミンCの活性成分による潜在的な刺激を相殺するのに役立ちます。`
       },
       {
-        question: 'How should I store the Vitamin C Brightening Serum to maintain its effectiveness?',
-        answer: `To preserve the potency of the Vitamin C Brightening Serum, store it in a cool, dark place away from direct sunlight and heat, which can accelerate oxidation. Our airless pump packaging significantly reduces oxygen exposure, but for maximum efficacy, avoid leaving the product in humid environments like bathrooms. The serum should remain clear to slightly yellow; if it turns dark orange or brown, this indicates oxidation and reduced effectiveness.`
+        question: 'ビタミンCブライトニングセラムの効果を維持するには、どのように保管すべきですか？',
+        answer: `ビタミンCブライトニングセラムの効果を維持するには、直射日光や熱から離れた涼しく暗い場所に保管してください。これらは酸化を加速させる可能性があります。当社のエアレスポンプ包装は酸素への露出を大幅に減少させますが、最大限の効果を得るためには、湿度の高い浴室などの環境に製品を放置しないでください。セラムは透明から微かに黄色であるべきです。濃いオレンジ色や茶色に変色した場合、これは酸化と効果の低下を示します。`
       },
       {
-        question: 'How long will one bottle of Vitamin C Brightening Serum last with regular use?',
-        answer: `One 30ml bottle of our Vitamin C Brightening Serum typically lasts approximately 2-3 months with daily application. The airless pump dispenser is designed to deliver the optimal amount (about 3-4 drops) for each application while preventing product waste. For best results and to maximize the lifespan of the active ingredients, we recommend using the serum within 3 months after opening.`
+        question: '定期的に使用した場合、ビタミンCブライトニングセラムの1本はどのくらい持ちますか？',
+        answer: `当社の30mlビタミンCブライトニングセラムは、毎日使用した場合、通常約2〜3ヶ月持続します。エアレスポンプディスペンサーは、製品の無駄を防ぎながら、各使用に最適な量（約3〜4滴）を提供するように設計されています。最良の結果を得るため、また有効成分の寿命を最大化するために、開封後3ヶ月以内にセラムを使用することをお勧めします。`
       },
       {
-        question: 'Can I use the Vitamin C Brightening Serum if I\'m pregnant or breastfeeding?',
-        answer: `Vitamin C is generally considered safe during pregnancy and breastfeeding, unlike some other skincare ingredients like retinoids. However, as every pregnancy is different, we always recommend consulting with your healthcare provider before introducing any new skincare products during pregnancy or while breastfeeding. Our formula is free from parabens, artificial fragrances, and other potentially concerning ingredients, but your doctor can provide personalized advice for your situation.`
+        question: '妊娠中または授乳中にビタミンCブライトニングセラムを使用しても大丈夫ですか？',
+        answer: `ビタミンCは一般的に、レチノイドなどの他のスキンケア成分とは異なり、妊娠中および授乳中に安全と考えられています。ただし、妊娠はそれぞれ異なるため、妊娠中または授乳中に新しいスキンケア製品を導入する前に、常に医療提供者に相談することをお勧めします。当社の処方はパラベン、人工香料、その他の潜在的に懸念される成分を含んでいませんが、あなたの医師はあなたの状況に合わせたアドバイスを提供できます。`
       }
     ],
     images: [
@@ -171,89 +172,89 @@ export const products: Product[] = [
       'https://images.pexels.com/photos/6621462/pexels-photo-6621462.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
     ],
     imageAlts: [
-      'Vitamin C serum bottle',
-      'Applying serum to face',
-      'Product texture'
+      'ビタミンCセラムボトル',
+      '顔にセラムを塗布する様子',
+      '製品のテクスチャー'
     ],
     optimizedImageAlts: [
-      `NaturGlow 20% Vitamin C Brightening Serum in airless pump bottle with dropper, containing stabilized L-ascorbic acid and hyaluronic acid for skin brightening`,
-      `Woman applying NaturGlow Vitamin C Brightening Serum to her face, demonstrating the lightweight texture that absorbs quickly without residue`,
-      `Close-up of NaturGlow Vitamin C Brightening Serum texture, showing the clear, slightly viscous formula with active ingredients that reduce dark spots and provide antioxidant protection`
+      `肌の明るさ向上のための安定化L-アスコルビン酸とヒアルロン酸を含むエアレスポンプボトルのナチュールグロウ20%ビタミンCブライトニングセラム`,
+      `顔にナチュールグロウビタミンCブライトニングセラムを塗布する女性。残留物なく素早く吸収される軽量のテクスチャーを示しています`,
+      `シミを減少させ抗酸化保護を提供する有効成分を含む、透明でわずかに粘度のあるナチュールグロウビタミンCブライトニングセラムのテクスチャーのクローズアップ`
     ],
-    optimizedImageAlt: `NaturGlow 20% Vitamin C Brightening Serum with Hyaluronic Acid and Ferulic Acid in airless pump dispenser for dark spot reduction and collagen production`
+    optimizedImageAlt: `シミ減少とコラーゲン生成のためのヒアルロン酸とフェルラ酸を配合したエアレスポンプディスペンサーのナチュールグロウ20%ビタミンCブライトニングセラム`
   },
 
   // Electronics Category
   {
     id: 'electronics-smart-speaker',
-    name: 'VoicePro Smart Speaker',
-    brand: 'TechSonic',
+    name: 'ボイスプロ スマートスピーカー',
+    brand: 'テックソニック',
     category: getCategoryById('electronics'),
-    price: 79.99,
+    price: 7999,
     rating: 4.6,
-    description: `Smart speaker with voice assistant. Works with smart home devices.`,
-    optimizedDescription: `The VoicePro Smart Speaker features advanced far-field voice recognition with 7 precision microphones that can hear you from across the room even while music is playing. With compatibility for over 10,000 smart home devices, high-fidelity sound with dual 2.5" woofers, and built-in privacy controls including a physical microphone off button.`,
-    shortDescription: `Smart speaker with assistant.`,
-    optimizedShortDescription: `Premium smart speaker with 7-mic far-field voice recognition, high-fidelity sound, and compatibility with 10,000+ smart home devices.`,
-    metaDescription: `Smart speaker for home.`,
-    optimizedMetaDescription: `VoicePro Smart Speaker with 7-mic far-field voice recognition, dual 2.5" woofers for immersive sound, works with 10,000+ smart home devices, and features advanced privacy controls.`,
+    description: `音声アシスタント搭載のスマートスピーカー。スマートホームデバイスと連携します。`,
+    optimizedDescription: `ボイスプロ スマートスピーカーは、音楽再生中でも部屋の反対側からでも認識できる7つの精密マイクを搭載した高度な遠距離音声認識機能を備えています。10,000以上のスマートホームデバイスとの互換性、デュアル2.5インチウーファーによる高忠実度サウンド、および物理的なマイクオフボタンを含む内蔵プライバシーコントロールを提供します。`,
+    shortDescription: `アシスタント搭載スマートスピーカー。`,
+    optimizedShortDescription: `7マイク遠距離音声認識、高忠実度サウンド、10,000以上のスマートホームデバイスとの互換性を備えたプレミアムスマートスピーカー。`,
+    metaDescription: `家庭用スマートスピーカー。`,
+    optimizedMetaDescription: `7マイク遠距離音声認識、没入感のあるサウンドのためのデュアル2.5インチウーファー、10,000以上のスマートホームデバイスとの連携、および高度なプライバシーコントロールを備えたボイスプロ スマートスピーカー。`,
     features: [
-      'Voice assistant',
-      'Plays music',
-      'Controls smart home',
-      'Answers questions'
+      '音声アシスタント',
+      '音楽再生',
+      'スマートホーム制御',
+      '質問に回答'
     ],
     optimizedFeatures: [
-      `Advanced far-field voice recognition with array of 7 precision microphones that can hear you from 30 feet away even while music is playing`,
-      `Immersive, room-filling sound with dual 2.5" woofers, 1" tweeter, and passive bass radiator for rich, detailed audio across all frequencies`,
-      `Compatible with over 10,000 smart home devices including lights, thermostats, locks, cameras, and entertainment systems`,
-      `Built-in privacy controls including physical microphone disconnect switch and the ability to delete voice recordings`,
-      `Multi-room audio synchronization allows playback across multiple speakers with less than 10ms latency`
+      `音楽再生中でも9メートル離れた場所から声を認識できる7つの精密マイクアレイを搭載した高度な遠距離音声認識`,
+      `デュアル2.5インチウーファー、1インチツイーター、およびパッシブベースラジエーターによる、あらゆる周波数で豊かで詳細なオーディオを提供する没入感のある部屋全体に広がるサウンド`,
+      `ライト、サーモスタット、鍵、カメラ、エンターテインメントシステムなど、10,000以上のスマートホームデバイスと互換性あり`,
+      `物理的なマイク切断スイッチと音声録音を削除する機能を含む内蔵プライバシーコントロール`,
+      `複数のスピーカー間で10ミリ秒未満の遅延で再生できるマルチルームオーディオ同期`
     ],
     specs: {
-      'Dimensions': '5.8" x 5.8" x 6.9"',
-      'Weight': '2.5 lbs',
-      'Speakers': 'Dual 2.5" woofers, 1" tweeter, passive radiator',
-      'Microphones': '7-microphone array with beamforming',
-      'Connectivity': 'Dual-band Wi-Fi (802.11 a/b/g/n/ac), Bluetooth 5.0',
-      'Power': '15W power adapter (included)',
-      'Audio Formats': 'MP3, AAC, FLAC, Apple Lossless',
-      'Voice Assistant': 'Built-in AI assistant with continuous updates'
+      'サイズ': '14.7 x 14.7 x 17.5 cm',
+      '重量': '1.1 kg',
+      'スピーカー': 'デュアル2.5インチウーファー、1インチツイーター、パッシブラジエーター',
+      'マイク': 'ビームフォーミング付き7マイクアレイ',
+      '接続': 'デュアルバンドWi-Fi（802.11 a/b/g/n/ac）、Bluetooth 5.0',
+      '電源': '15W電源アダプター（付属）',
+      'オーディオフォーマット': 'MP3、AAC、FLAC、Apple Lossless',
+      '音声アシスタント': '継続的な更新を備えた内蔵AIアシスタント'
     },
     faqs: [
       {
-        question: 'Can it control my lights?',
-        answer: `Yes, if they're compatible smart lights.`
+        question: 'ライトを制御できますか？',
+        answer: `はい、互換性のあるスマートライトであれば制御可能です。`
       },
       {
-        question: 'Does it work without internet?',
-        answer: `Basic functions only.`
+        question: 'インターネットなしでも機能しますか？',
+        answer: `基本的な機能のみ使用可能です。`
       },
       {
-        question: 'Can I use it for calls?',
-        answer: `Yes, voice calls are supported.`
+        question: '通話に使用できますか？',
+        answer: `はい、音声通話に対応しています。`
       }
     ],
     optimizedFaqs: [
       {
-        question: 'What types of smart home devices is the VoicePro Smart Speaker compatible with?',
-        answer: `The VoicePro Smart Speaker works with over 10,000 smart home devices across major ecosystems including SmartThings, HomeKit, ZigBee, and Z-Wave protocols. This includes popular brands of smart lights (Philips Hue, LIFX, Nanoleaf), thermostats (Nest, Ecobee), door locks (August, Schlage), security cameras (Ring, Arlo), entertainment systems (Sonos, Roku), and kitchen appliances. New device compatibility is added regularly through automatic software updates.`
+        question: 'ボイスプロ スマートスピーカーはどのようなスマートホームデバイスと互換性がありますか？',
+        answer: `ボイスプロ スマートスピーカーは、SmartThings、HomeKit、ZigBee、Z-Waveプロトコルなど、主要なエコシステムにわたる10,000以上のスマートホームデバイスと連携します。これには、スマートライト（Philips Hue、LIFX、Nanoleaf）、サーモスタット（Nest、Ecobee）、ドアロック（August、Schlage）、セキュリティカメラ（Ring、Arlo）、エンターテインメントシステム（Sonos、Roku）、キッチン家電などの人気ブランドが含まれます。自動ソフトウェアアップデートを通じて、新しいデバイスの互換性が定期的に追加されます。`
       },
       {
-        question: 'How does the VoicePro Smart Speaker protect my privacy and security?',
-        answer: `The VoicePro was built with privacy as a cornerstone feature. It includes a physical microphone disconnect switch that electrically cuts the microphone connection when activated (indicated by a red LED). All voice processing is performed with edge computing when possible, minimizing cloud transmission. You can delete your voice history at any time through the companion app or by voice command. Additionally, all cloud communications are encrypted with AES-256, and we conduct regular security audits by third-party firms to ensure your data remains protected.`
+        question: 'ボイスプロ スマートスピーカーはプライバシーとセキュリティをどのように保護していますか？',
+        answer: `ボイスプロは、プライバシーを基本機能として構築されています。アクティブ時に赤色LEDで示される物理的なマイク切断スイッチが含まれており、これはマイク接続を電気的に切断します。可能な限り、すべての音声処理はエッジコンピューティングで実行され、クラウド送信を最小限に抑えます。コンパニオンアップまたは音声コマンドを通じて、いつでも音声履歴を削除できます。さらに、すべてのクラウド通信はAES-256で暗号化され、データが保護されていることを確認するために、サードパーティのセキュリティ監査を定期的に実施しています。`
       },
       {
-        question: `What's the range of the voice recognition in the VoicePro Smart Speaker?`,
-        answer: `The VoicePro features our most advanced far-field voice recognition technology with 7 precision microphones arranged in a circular array with beamforming and acoustic echo cancellation. It can reliably detect the wake word and commands from up to 30 feet away, even when music is playing at moderate volumes or in rooms with ambient noise. The speaker uses AI algorithms to distinguish between commands and background conversations, reducing false activations by 43% compared to previous models.`
+        question: `ボイスプロ スマートスピーカーの音声認識の範囲はどれくらいですか？`,
+        answer: `ボイスプロは、ビームフォーミングと音響エコーキャンセレーションを備えた7つの精密マイクが円形に配置された最も高度な遠距離音声認識技術を特徴としています。中程度の音量で音楽が再生中でも、またはノイズのある部屋でも、最大9メートル離れた場所からウェイクワードとコマンドを確実に検出できます。スピーカーはAIアルゴリズムを使用してコマンドとバックグラウンド会話を区別し、誤検出を以前のモデルと比較して43%削減しています。`
       },
       {
-        question: 'How do I set up multi-room audio with multiple VoicePro speakers?',
-        answer: `Setting up multi-room audio is simple with the VoicePro app. After connecting all your speakers to the same WiFi network, open the app and select "Create Speaker Group." Choose which speakers to include and optionally assign them to specific rooms. Once configured, you can play synchronized audio across all speakers with less than 10ms latency between devices. You can control volume individually for each speaker or adjust the group volume simultaneously. Simply say "Play [content] everywhere" or "Play [content] in the [room name]" for voice control.`
+        question: '複数のボイスプロスピーカーでマルチルームオーディオをどのように設定しますか？',
+        answer: `ボイスプロアプリを使用したマルチルームオーディオの設定は簡単です。すべてのスピーカーを同じWiFiネットワークに接続した後、アプリを開き「スピーカーグループを作成」を選択します。どのスピーカーを含めるかを選択し、オプションで特定の部屋に割り当てます。設定後、デバイス間で10ミリ秒未満の遅延で同期されたオーディオを全スピーカーで再生できます。各スピーカーの音量を個別に調整するか、グループ音量を同時に調整できます。音声制御するには、「[コンテンツ]をどこでも再生」または「[コンテンツ]を[部屋名]で再生」と言うだけです。`
       },
       {
-        question: 'What music services and audio formats does the VoicePro Smart Speaker support?',
-        answer: `The VoicePro supports all major music streaming services including Spotify, Apple Music, Amazon Music, YouTube Music, Pandora, Tidal, and Deezer. It can also play local music via Bluetooth or from media servers using DLNA protocols. For audio formats, the speaker supports MP3, AAC, FLAC, WAV, ALAC (Apple Lossless), Ogg Vorbis, and high-resolution audio up to 24-bit/192kHz. The dual woofers, dedicated tweeter, and passive radiator work together to deliver room-filling sound with crisp highs and deep bass across all audio formats.`
+        question: 'ボイスプロ スマートスピーカーはどのような音楽サービスとオーディオフォーマットをサポートしていますか？',
+        answer: `ボイスプロは、Spotify、Apple Music、Amazon Music、YouTube Music、Pandora、Tidal、Deezerなどすべての主要な音楽ストリーミングサービスをサポートしています。また、BluetoothまたはDLNAプロトコルを使用したメディアサーバーからローカル音楽を再生することもできます。オーディオフォーマットについては、スピーカーはMP3、AAC、FLAC、WAV、ALAC（Apple Lossless）、Ogg Vorbis、および最大24ビット/192kHzのハイレゾオーディオをサポートしています。デュアルウーファー、専用ツイーター、およびパッシブラジエーターが連携して、あらゆるオーディオフォーマットで部屋全体に広がるサウンドとシャープな高音と深いベースを提供します。`
       }
     ],
     images: [
@@ -262,87 +263,87 @@ export const products: Product[] = [
       'https://images.pexels.com/photos/230554/pexels-photo-230554.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
     ],
     imageAlts: [
-      'Smart speaker',
-      'Speaker in living room',
-      'Speaker controls'
+      'スマートスピーカー',
+      'リビングルームのスピーカー',
+      'スピーカーコントロール'
     ],
     optimizedImageAlts: [
-      `TechSonic VoicePro Smart Speaker with cylindrical design, fabric covering, and LED status ring, designed for 360-degree sound projection and far-field voice recognition`,
-      `VoicePro Smart Speaker in modern living room setting, showing how it integrates with smart home ecosystem to control lights, thermostat, and entertainment`,
-      `Close-up of VoicePro Smart Speaker top control panel with physical microphone off button, touch-sensitive volume controls, and action button for privacy-focused operation`
+      `360度サウンド投影と遠距離音声認識のためにデザインされた円筒形のデザイン、ファブリックカバー、およびLEDステータスリングを備えたテックソニック ボイスプロ スマートスピーカー`,
+      `スマートホームエコシステムと統合してライト、サーモスタット、およびエンターテインメントを制御する方法を示す現代的なリビングルーム設定のボイスプロ スマートスピーカー`,
+      `プライバシー重視の操作のための物理的なマイクオフボタン、タッチセンシティブな音量コントロール、およびアクションボタンを備えたボイスプロ スマートスピーカーの上部コントロールパネルのクローズアップ`
     ],
-    optimizedImageAlt: `TechSonic VoicePro Smart Speaker with 7-microphone array, dual 2.5" woofers for immersive sound, and compatibility with over 10,000 smart home devices`
+    optimizedImageAlt: `7マイクアレイ、没入感のあるサウンドのためのデュアル2.5インチウーファー、および10,000以上のスマートホームデバイスとの互換性を備えたテックソニック ボイスプロ スマートスピーカー`
   },
   {
     id: 'electronics-fitness-tracker',
-    name: 'HealthSync Fitness Tracker',
-    brand: 'LifeWell',
+    name: 'ヘルスシンク フィットネストラッカー',
+    brand: 'ライフウェル',
     category: getCategoryById('electronics'),
-    price: 89.99,
+    price: 8999,
     rating: 4.4,
-    description: `Tracks steps, heart rate, and sleep. Waterproof design.`,
-    optimizedDescription: `The HealthSync Fitness Tracker features 24/7 heart rate monitoring with medical-grade PPG sensors, 14-day battery life, and advanced sleep tracking that identifies sleep stages with 91% accuracy compared to lab studies. Its waterproof design (5ATM rated) and built-in GPS make it perfect for all activities from swimming to trail running.`,
-    shortDescription: `Fitness tracker with health features.`,
-    optimizedShortDescription: `Advanced fitness tracker with medical-grade heart monitoring, 14-day battery, 5ATM waterproofing, and AI-powered health insights.`,
-    metaDescription: `Fitness tracker for health monitoring.`,
-    optimizedMetaDescription: `HealthSync Fitness Tracker with 24/7 heart monitoring (medical-grade PPG sensors), 14-day battery life, 5ATM waterproof rating, built-in GPS, and AI health coach for personalized fitness guidance.`,
+    description: `歩数、心拍数、睡眠を追跡します。防水設計。`,
+    optimizedDescription: `ヘルスシンク フィットネストラッカーは、医療グレードのPPGセンサーを使用した24時間心拍数モニタリング、14日間のバッテリー寿命、および睡眠研究と比較して91%の精度で睡眠段階を識別する高度な睡眠追跡機能を特徴としています。その防水設計（5ATM評価）と内蔵GPSにより、水泳からトレイルランニングまですべてのアクティビティに最適です。`,
+    shortDescription: `健康機能付きフィットネストラッカー。`,
+    optimizedShortDescription: `医療グレードの心拍数モニタリング、14日間のバッテリー、5ATM防水、およびAI駆動の健康インサイトを備えた高度なフィットネストラッカー。`,
+    metaDescription: `健康モニタリング用フィットネストラッカー。`,
+    optimizedMetaDescription: `24時間心拍数モニタリング（医療グレードPPGセンサー）、14日間のバッテリー寿命、5ATM防水評価、内蔵GPS、およびパーソナライズされたフィットネスガイダンスのためのAIヘルスコーチを備えたヘルスシンク フィットネストラッカー。`,
     features: [
-      'Tracks steps',
-      'Heart rate monitor',
-      'Sleep tracking',
-      'Waterproof'
+      '歩数追跡',
+      '心拍数モニター',
+      '睡眠追跡',
+      '防水'
     ],
     optimizedFeatures: [
-      `24/7 heart rate monitoring with medical-grade PPG sensors that scan 120 times per second for exceptional accuracy`,
-      `Advanced sleep tracking identifies REM, deep, and light sleep stages with 91% accuracy compared to sleep lab studies`,
-      `Exceptional 14-day battery life with rapid charging (full charge in 45 minutes)`,
-      `Built-in GPS and 5ATM waterproof rating (up to 50 meters) for tracking all activities from swimming to trail running`,
-      `AI-powered health insights that learn your patterns and provide personalized recommendations`
+      `例外的な精度を実現するために1秒あたり120回スキャンする医療グレードのPPGセンサーを使用した24時間心拍数モニタリング`,
+      `睡眠研究と比較して91%の精度でREM、深い睡眠、および浅い睡眠段階を識別する高度な睡眠追跡`,
+      `急速充電（45分でフル充電）で14日間の優れたバッテリー寿命`,
+      `水泳からトレイルランニングまですべてのアクティビティを追跡するための内蔵GPSと5ATM防水評価（最大50メートル）`,
+      `あなたのパターンを学習し、パーソナライズされた推奨事項を提供するAI駆動の健康インサイト`
     ],
     specs: {
-      'Display': '1.39" AMOLED, 454 x 454 resolution',
-      'Battery': '14 days typical use, 45-minute full charge',
-      'Sensors': 'PPG heart rate, 3-axis accelerometer, gyroscope, SpO2, temperature',
-      'Connectivity': 'Bluetooth 5.0, GPS/GLONASS',
-      'Water Resistance': '5ATM (50 meters)',
-      'Compatibility': 'iOS 12.0+, Android 7.0+',
-      'Materials': 'Anodized aluminum case, silicone strap',
-      'Dimensions': '43mm x 36mm x 11.8mm, 32g'
+      'ディスプレイ': '1.39インチAMOLED、454 x 454解像度',
+      'バッテリー': '通常使用で14日間、45分でフル充電',
+      'センサー': 'PPG心拍数、3軸加速度計、ジャイロスコープ、SpO2、温度',
+      '接続': 'Bluetooth 5.0、GPS/GLONASS',
+      '防水性': '5ATM（50メートル）',
+      '互換性': 'iOS 12.0+、Android 7.0+',
+      '素材': '陽極酸化アルミニウムケース、シリコンストラップ',
+      'サイズ': '43mm x 36mm x 11.8mm、32g'
     },
     faqs: [
       {
-        question: 'Is it waterproof?',
-        answer: `Yes, you can swim with it.`
+        question: '防水ですか？',
+        answer: `はい、水泳にも使用できます。`
       },
       {
-        question: 'How long does the battery last?',
-        answer: `About 5-7 days with normal use.` // Note: Optimized data says 14 days, this might need correction depending on which is accurate
+        question: 'バッテリーはどのくらい持ちますか？',
+        answer: `通常使用で約5-7日間です。` // 注：最適化データでは14日間となっており、どちらが正確かによって修正が必要かもしれません
       },
       {
-        question: 'Does it track calories?',
-        answer: `Yes, it estimates calories burned.`
+        question: 'カロリーを追跡しますか？',
+        answer: `はい、消費カロリーを推定します。`
       }
     ],
     optimizedFaqs: [
       {
-        question: `How accurate is the HealthSync Fitness Tracker's heart rate monitoring compared to medical devices?`,
-        answer: `The HealthSync Fitness Tracker uses medical-grade PPG (photoplethysmography) sensors that scan 120 times per second, providing accuracy within ±3 BPM compared to EKG readings in clinical testing. Our proprietary PreciseHeart™ algorithm has been validated in studies with over 10,000 participants across diverse demographics. For resting heart rate, the accuracy increases to ±1 BPM. While not a replacement for medical devices, the tracker's continuous monitoring can help identify patterns and anomalies worth discussing with healthcare providers.`
+        question: `ヘルスシンク フィットネストラッカーの心拍数モニタリングは医療機器と比較してどれくらい正確ですか？`,
+        answer: `ヘルスシンク フィットネストラッカーは、1秒あたり120回スキャンする医療グレードのPPG（光電容積脈波）センサーを使用しており、臨床試験でEKG測定値と比較して±3 BPM以内の精度を提供します。当社独自のPreciseHeart™アルゴリズムは、多様な人口統計にわたる10,000人以上の参加者を対象とした研究で検証されています。安静時心拍数の場合、精度は±1 BPMまで向上します。医療機器の代替ではありませんが、トラッカーの継続的なモニタリングは、医療提供者と話し合う価値のあるパターンや異常を特定するのに役立ちます。`
       },
       {
-        question: `What makes the HealthSync's sleep tracking more advanced than other fitness trackers?`,
-        answer: `Our sleep tracking technology combines multiple sensors (heart rate variability, micro-movements, body temperature, and blood oxygen) with our AI algorithm that was trained on over 1 million hours of polysomnography-validated sleep data. This allows the HealthSync to identify REM, deep, and light sleep stages with 91% accuracy compared to sleep lab studies. The tracker also measures sleep quality factors like restlessness, breathing disturbances, and environmental factors. Each morning, you receive a detailed sleep score with actionable insights to improve your rest.`
+        question: `ヘルスシンクの睡眠追跡が他のフィットネストラッカーより優れている点は何ですか？`,
+        answer: `当社の睡眠追跡技術は、複数のセンサー（心拍変動、微小運動、体温、血中酸素）と、100万時間以上のポリソムノグラフィー検証済み睡眠データで訓練されたAIアルゴリズムを組み合わせています。これにより、ヘルスシンクは睡眠研究と比較して91%の精度でREM、深い睡眠、および浅い睡眠段階を識別できます。トラッカーはまた、落ち着きのなさ、呼吸障害、環境要因などの睡眠の質の要素も測定します。毎朝、休息を改善するための実行可能なインサイトを含む詳細な睡眠スコアを受け取ります。`
       },
       {
-        question: 'How waterproof is the HealthSync Fitness Tracker and what water activities can I use it for?',
-        answer: `The HealthSync is rated 5ATM (50 meters water-resistant), meaning it's suitable for swimming in pools and open water, snorkeling, and showering. It can track swim metrics including laps, stroke type, SWOLF score, and calories burned. The touchscreen is designed to work even when wet, and the tracker automatically locks during water activities to prevent accidental inputs. After exposure to salt water, we recommend rinsing with fresh water. Note that while suitable for recreational swimming, the tracker is not rated for high-pressure water activities like jet skiing or scuba diving below 30 meters.`
+        question: 'ヘルスシンク フィットネストラッカーはどれくらい防水で、どのような水中活動に使用できますか？',
+        answer: `ヘルスシンクは5ATM（50メートル防水）評価を持ち、プールや海での水泳、シュノーケリング、シャワーに適しています。ラップ、ストロークタイプ、SWOLFスコア、消費カロリーなどの水泳メトリクスを追跡できます。タッチスクリーンは濡れていても機能するように設計されており、トラッカーは誤操作を防ぐために水中アクティビティ中に自動的にロックします。海水にさらした後は、真水ですすぐことをお勧めします。レクリエーションスイミングには適していますが、ジェットスキーや30メートル以下のスキューバダイビングなどの高圧水中アクティビティには評価されていないことに注意してください。`
       },
       {
-        question: `How does the HealthSync's battery last 14 days when other trackers need charging every few days?`,
-        answer: `The HealthSync's exceptional 14-day battery life results from three key innovations: (1) our custom AMOLED display with pixel-adaptive brightness that uses 40% less power than standard displays, (2) a hybrid processor architecture with separate low-power and high-performance cores that intelligently switches based on tasks, and (3) advanced power optimization algorithms that adjust sensor sampling frequencies based on activity. Even with 24/7 heart rate monitoring, sleep tracking, and 3 hours of GPS usage per week, you'll get a full 14 days. When needed, our fast-charging technology provides a full charge in just 45 minutes.`
+        question: `他のトラッカーが数日ごとに充電が必要なのに、ヘルスシンクのバッテリーはどのようにして14日間持続するのですか？`,
+        answer: `ヘルスシンクの優れた14日間のバッテリー寿命は、3つの主要な革新の結果です：（1）標準ディスプレイより40%少ない電力を使用するピクセル適応型の明るさを備えたカスタムAMOLEDディスプレイ、（2）タスクに基づいてインテリジェントに切り替わる別個の低電力コアと高性能コアを持つハイブリッドプロセッサアーキテクチャ、（3）アクティビティに基づいてセンサーのサンプリング頻度を調整する高度な電力最適化アルゴリズム。24時間心拍数モニタリング、睡眠追跡、および週に3時間のGPS使用でも、満充電の14日間が得られます。必要な場合、当社の急速充電技術はわずか45分でフル充電を提供します。`
       },
       {
-        question: 'What kind of personalized insights does the AI health coach provide?',
-        answer: `The AI health coach analyzes your activity, sleep, heart rate, and other metrics to identify patterns and provide personalized recommendations. After collecting 2 weeks of baseline data, it begins offering insights like optimal workout times based on your body's readiness, recovery recommendations after detecting signs of overtraining, and sleep schedule adjustments to align with your natural circadian rhythm. The insights become more personalized over time as the AI learns your unique patterns. Premium subscribers receive additional insights including stress management techniques, nutrition timing suggestions, and comparative analysis with similar users.`
+        question: 'AIヘルスコーチはどのようなパーソナライズされたインサイトを提供しますか？',
+        answer: `AIヘルスコーチはあなたのアクティビティ、睡眠、心拍数、および他のメトリクスを分析して、パターンを識別し、パーソナライズされた推奨事項を提供します。2週間のベースラインデータを収集した後、体の準備状態に基づく最適なワークアウト時間、オーバートレーニングの兆候を検出した後の回復推奨事項、自然な体内時計に合わせた睡眠スケジュールの調整など、インサイトの提供を開始します。AIがあなた独自のパターンを学習するにつれて、インサイトはより個別化されていきます。プレミアムサブスクライバーは、ストレス管理テクニック、栄養タイミングの提案、および類似ユーザーとの比較分析など、追加のインサイトを受け取ります。`
       }
     ],
     images: [
@@ -351,79 +352,96 @@ export const products: Product[] = [
       'https://images.pexels.com/photos/4498475/pexels-photo-4498475.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
     ],
     imageAlts: [
-      'Fitness tracker',
-      'Tracker on wrist',
-      'Tracker app screen'
+      'フィットネストラッカー',
+      '手首のトラッカー',
+      'トラッカーアプリ画面'
     ],
     optimizedImageAlts: [
-      `HealthSync Fitness Tracker with 1.39" AMOLED display showing heart rate monitoring screen, featuring slim anodized aluminum case and comfortable silicone strap`,
-      `Person wearing HealthSync Fitness Tracker during outdoor run, demonstrating how the 5ATM waterproof device tracks activities with built-in GPS and continuous heart rate monitoring`,
-      `HealthSync companion app dashboard displaying comprehensive health metrics including sleep analysis, heart rate zones, activity summary, and personalized AI health insights`
+      `心拍数モニタリング画面を表示する1.39インチAMOLEDディスプレイと、スリムな陽極酸化アルミニウムケースと快適なシリコンストラップを特徴とするヘルスシンク フィットネストラッカー`,
+      `5ATM防水デバイスが内蔵GPSと継続的な心拍数モニタリングでアクティビティを追跡する方法を示す、屋外ランニング中にヘルスシンク フィットネストラッカーを着用する人`,
+      `睡眠分析、心拍ゾーン、アクティビティサマリー、およびパーソナライズされたAI健康インサイトを含む包括的な健康メトリクスを表示するヘルスシンクコンパニオンアプリダッシュボード`
     ],
-    optimizedImageAlt: `HealthSync Fitness Tracker with medical-grade heart monitoring, 1.39" AMOLED display, 5ATM waterproof rating, and 14-day battery life for comprehensive health tracking`
+    optimizedImageAlt: `医療グレードの心拍数モニタリング、1.39インチAMOLEDディスプレイ、5ATM防水性能、および14日間のバッテリー寿命を備えた包括的な健康追跡のためのヘルスシンク フィットネストラッカー`
   },
 
   // Fashion Category
   {
     id: 'fashion-eco-sneakers',
-    name: 'EcoStep Recycled Sneakers',
-    brand: 'GreenThread',
+    name: 'エコステップ リサイクルスニーカー',
+    brand: 'グリーンスレッド',
     category: getCategoryById('fashion'),
-    price: 89.99, // Assuming a price and adding comma
-    // ... other properties for this product would go here ...
-    // Example properties (add real data as needed):
+    price: 8999, 
     rating: 4.2,
-    description: `Stylish sneakers made from recycled materials.`,
-    optimizedDescription: `EcoStep Recycled Sneakers are crafted from certified recycled ocean plastic and sustainable rubber. Breathable knit upper, comfortable cork insole, and durable outsole.`,
-    shortDescription: `Eco-friendly recycled sneakers.`,
-    optimizedShortDescription: `Sneakers made from recycled ocean plastic, sustainable rubber, and cork insole.`,
-    metaDescription: `Sustainable and stylish sneakers made from recycled materials.`,
-    optimizedMetaDescription: `GreenThread EcoStep Recycled Sneakers: Sustainable footwear made from ocean plastic & natural rubber. Comfortable, breathable, and eco-conscious choice.`,
+    description: `リサイクル素材から作られたスタイリッシュなスニーカー。`,
+    optimizedDescription: `エコステップ リサイクルスニーカーは、認証済みリサイクルオーシャンプラスチックと持続可能なゴムから作られています。通気性のあるニット素材のアッパー、快適なコルクインソール、耐久性のあるアウトソールを特徴としています。`,
+    shortDescription: `環境に優しいリサイクルスニーカー。`,
+    optimizedShortDescription: `リサイクルオーシャンプラスチック、持続可能なゴム、およびコルクインソールから作られたスニーカー。`,
+    metaDescription: `リサイクル素材から作られた持続可能でスタイリッシュなスニーカー。`,
+    optimizedMetaDescription: `グリーンスレッド エコステップ リサイクルスニーカー：オーシャンプラスチック＆天然ゴムから作られた持続可能なフットウェア。快適で通気性があり、環境に配慮した選択肢。`,
     features: [
-      `Recycled materials`,
-      `Breathable`,
-      `Comfortable insole`,
-      `Durable`
+      `リサイクル素材`,
+      `通気性`,
+      `快適なインソール`,
+      `耐久性`
     ],
     optimizedFeatures: [
-      `Upper knit from 95% certified recycled ocean-bound plastic bottles (approx. 5 bottles per pair)`,
-      `Natural cork insole provides moisture-wicking and antimicrobial properties`,
-      `Outsole made from 70% recycled rubber and 30% natural rubber for grip and durability`,
-      `Laces made from 100% recycled PET`,
-      `Carbon neutral production process`
+      `アッパーは95%認証済みの海洋プラスチックボトルから編まれています（1足あたり約5本のボトルを使用）`,
+      `天然コルクインソールは吸湿性と抗菌特性を提供`,
+      `アウトソールは70%リサイクルゴムと30%天然ゴムで作られ、グリップ力と耐久性を実現`,
+      `靴紐は100%リサイクルPET素材`,
+      `カーボンニュートラルな製造プロセス`
     ],
     specs: {
-      'Materials': 'Recycled PET knit upper, cork insole, recycled/natural rubber outsole',
-      'Weight': 'Approx. 10 oz per shoe (size 9)',
-      'Available Sizes': 'US Men 7-13, US Women 5-11',
-      'Colors': 'Ocean Blue, Sandstone Beige, Forest Green, Onyx Black',
-      'Care': 'Spot clean recommended'
+      '素材': 'リサイクルPETニットアッパー、コルクインソール、リサイクル/天然ゴムアウトソール',
+      '重量': '1足あたり約280g（9サイズ）',
+      '利用可能サイズ': '日本サイズ 25-30cm（男性）、22-27cm（女性）',
+      'カラー': 'オーシャンブルー、サンドストーンベージュ、フォレストグリーン、オニキスブラック',
+      'お手入れ': '部分洗いを推奨'
     },
     faqs: [
-      { question: 'Are they machine washable?', answer: `Spot cleaning is recommended to preserve materials.`},
-      { question: 'How are they made?', answer: `Using recycled plastic bottles and sustainable rubber.`},
-      { question: 'Are they true to size?', answer: `Yes, they generally fit true to size.`}
+      { question: '洗濯機で洗えますか？', answer: `素材を保護するために部分洗いをお勧めします。`},
+      { question: 'どのように作られていますか？', answer: `リサイクルペットボトルと持続可能なゴムを使用しています。`},
+      { question: 'サイズ感はどうですか？', answer: `はい、一般的に通常のサイズ通りにフィットします。`}
     ],
     optimizedFaqs: [
-       { question: 'How much recycled material is used in each pair?', answer: `Each pair uses approximately 5 recycled ocean-bound plastic bottles for the knit upper. The outsole contains 70% recycled rubber, and the laces are 100% recycled PET.`},
-       { question: 'Are the EcoStep sneakers comfortable for all-day wear?', answer: `Yes, the breathable knit upper, cushioned natural cork insole, and flexible rubber outsole are designed for comfort throughout the day.`},
-       { question: 'How do I clean my EcoStep sneakers?', answer: `We recommend spot cleaning with a damp cloth and mild soap. Avoid machine washing or drying to maintain the integrity of the recycled materials and cork insole.`}
+       { question: '各ペアではどのくらいのリサイクル素材が使用されていますか？', answer: `各ペアのニットアッパーには約5本のリサイクル海洋プラスチックボトルが使用されています。アウトソールには70%リサイクルゴムが含まれ、靴紐は100%リサイクルPET素材です。`},
+       { question: 'エコステップスニーカーは一日中の着用に快適ですか？', answer: `はい、通気性のあるニットアッパー、クッション性のある天然コルクインソール、柔軟なゴムアウトソールは一日中の快適さのために設計されています。`},
+       { question: 'エコステップスニーカーのお手入れ方法は？', answer: `湿らせた布と中性石鹸での部分洗いをお勧めします。リサイクル素材とコルクインソールの完全性を維持するために、洗濯機や乾燥機の使用は避けてください。`}
     ],
      images: [
-      'https://images.pexels.com/photos/1598505/pexels-photo-1598505.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', // Placeholder
-      'https://images.pexels.com/photos/267202/pexels-photo-267202.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', // Placeholder
-      'https://images.pexels.com/photos/1478442/pexels-photo-1478442.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1' // Placeholder
+      'https://images.pexels.com/photos/1598505/pexels-photo-1598505.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', // プレースホルダー
+      'https://images.pexels.com/photos/267202/pexels-photo-267202.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', // プレースホルダー
+      'https://images.pexels.com/photos/1478442/pexels-photo-1478442.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1' // プレースホルダー
     ],
     imageAlts: [
-      'Recycled sneakers pair',
-      'Sneaker on foot',
-      'Sneaker material detail'
+      'リサイクルスニーカーのペア',
+      '足に履いたスニーカー',
+      'スニーカー素材の詳細'
     ],
     optimizedImageAlts: [
-      `Pair of GreenThread EcoStep Recycled Sneakers in Ocean Blue, showcasing the knit upper made from ocean plastic`,
-      `Close-up of EcoStep sneaker worn outdoors, highlighting the sustainable rubber outsole and breathable design`,
-      `Detailed view of EcoStep sneaker showing texture of recycled PET knit upper and natural cork insole`
+      `オーシャンプラスチックから作られたニットアッパーを特徴とするオーシャンブルーのグリーンスレッド エコステップ リサイクルスニーカーのペア`,
+      `持続可能なゴムアウトソールと通気性のあるデザインを強調する、屋外で履かれたエコステップスニーカーのクローズアップ`,
+      `リサイクルPETニットアッパーと天然コルクインソールのテクスチャーを示すエコステップスニーカーの詳細ビュー`
     ],
-    optimizedImageAlt: `GreenThread EcoStep Recycled Sneakers made from ocean plastic and sustainable rubber, available in multiple colors`
-  } // Added closing brace for the object
-]; // Added closing bracket for the array
+    optimizedImageAlt: `複数の色で利用可能なオーシャンプラスチックと持続可能なゴムから作られたグリーンスレッド エコステップ リサイクルスニーカー`
+  } // オブジェクトの閉じ括弧を追加
+]; // 配列の閉じ括弧を追加
+
+// src/data/categories.ts も日本語化
+export const categories = [
+  {
+    id: 'beauty',
+    name: 'ビューティー',
+    description: '美容製品、スキンケア、パーソナルケア'
+  },
+  {
+    id: 'electronics',
+    name: '家電',
+    description: 'ガジェット、スマートデバイス、テクノロジー'
+  },
+  {
+    id: 'fashion',
+    name: 'ファッション',
+    description: '衣類、靴、アクセサリー'
+  }
+];
