@@ -1,14 +1,8 @@
-<<<<<<< HEAD
-=======
-// src/components/product/ProductGallery.tsx の修正例
-
->>>>>>> 26eab910c894d7e0979da9f3f423bc99bf87a4f8
 import React, { useState } from 'react';
 import { useAIOptimization } from '../../contexts/AIOptimizationContext';
 import { Product } from '../../types/product';
 import AIHighlight from './AIHighlight';
 
-<<<<<<< HEAD
 // 画像のフォールバック機能
 const getImageWithFallback = (url: string, index: number) => {
   // 無料の画像サービスから代替画像のURLを生成
@@ -21,27 +15,6 @@ const getImageWithFallback = (url: string, index: number) => {
       if (target.src !== fallbackUrl) {
         console.log('画像の読み込みに失敗しました。代替画像を使用します。');
         target.src = fallbackUrl;
-=======
-// 仮の画像データ（ローカルに保存する場合）
-import placeholderImg1 from '../../assets/images/products/placeholder-1.jpg';
-import placeholderImg2 from '../../assets/images/products/placeholder-2.jpg';
-import placeholderImg3 from '../../assets/images/products/placeholder-3.jpg';
-
-// 画像のフォールバック機能
-const getImageWithFallback = (url: string, index: number) => {
-  const fallbackImages = [placeholderImg1, placeholderImg2, placeholderImg3];
-  
-  // 1. まず元のURLを試す
-  // 2. もし失敗したら無料の画像サービスから似た画像を取得
-  // 3. それも失敗したらローカルのプレースホルダー画像を使用
-  return {
-    src: url || `https://source.unsplash.com/random/800x600/?product,${index}` || fallbackImages[index % fallbackImages.length],
-    onError: (e: React.SyntheticEvent<HTMLImageElement>) => {
-      const target = e.target as HTMLImageElement;
-      if (target.src !== fallbackImages[index % fallbackImages.length]) {
-        console.log('画像の読み込みに失敗しました。代替画像を使用します。');
-        target.src = `https://source.unsplash.com/random/800x600/?product,${index}` || fallbackImages[index % fallbackImages.length];
->>>>>>> 26eab910c894d7e0979da9f3f423bc99bf87a4f8
       }
     }
   };
@@ -89,8 +62,4 @@ const ProductGallery: React.FC<ProductGalleryProps> = ({ product }) => {
   );
 };
 
-<<<<<<< HEAD
 export default ProductGallery;
-=======
-export default ProductGallery;
->>>>>>> 26eab910c894d7e0979da9f3f423bc99bf87a4f8
