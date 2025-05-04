@@ -8,23 +8,26 @@ import ProductDetailPage from './pages/ProductDetailPage';
 import TechnicalPage from './pages/TechnicalPage';
 import DiagnosticTool from './pages/DiagnosticTool';
 import { AIOptimizationProvider } from './contexts/AIOptimizationContext';
+import { LocalizationProvider } from './contexts/LocalizationContext';
 
 function App() {
   return (
     <HelmetProvider>
-      <AIOptimizationProvider>
-        <Router>
-          <Layout>
-            <Routes>
-              <Route path="/" element={<HomePage />} />
-              <Route path="/category/:categoryId" element={<CategoryPage />} />
-              <Route path="/product/:productId" element={<ProductDetailPage />} />
-              <Route path="/tech-explanation" element={<TechnicalPage />} />
-              <Route path="/diagnostic-tool" element={<DiagnosticTool />} />
-            </Routes>
-          </Layout>
-        </Router>
-      </AIOptimizationProvider>
+      <LocalizationProvider>
+        <AIOptimizationProvider>
+          <Router>
+            <Layout>
+              <Routes>
+                <Route path="/" element={<HomePage />} />
+                <Route path="/category/:categoryId" element={<CategoryPage />} />
+                <Route path="/product/:productId" element={<ProductDetailPage />} />
+                <Route path="/tech-explanation" element={<TechnicalPage />} />
+                <Route path="/diagnostic-tool" element={<DiagnosticTool />} />
+              </Routes>
+            </Layout>
+          </Router>
+        </AIOptimizationProvider>
+      </LocalizationProvider>
     </HelmetProvider>
   );
 }
