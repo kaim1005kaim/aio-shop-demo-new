@@ -129,7 +129,7 @@ const ProductDetailPage: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
            <AIRecommendationScore product={product} />
            {/* isOptimized が true の場合に ARViewer を表示 */}
-           {isOptimized && product.id && <ARViewer productId={product.id} />}
+           {isOptimized && product.id && <ARViewer productId={product} />}
          </div>
 
          <SuggestedPrompts product={product} />
