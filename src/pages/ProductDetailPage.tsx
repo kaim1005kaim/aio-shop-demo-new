@@ -31,12 +31,11 @@ const ProductDetailPage: React.FC = () => {
   
   if (!product) {
 
-    return <div className="container mx-auto px-4 py-16">{t('product_not_found')}</div>;
-
-    return <div className="container mx-auto px-4 py-16">{t('product_not_found')}          </div>
-    </>
-  );
-};
+    if (!product) {
+      return (
+        <div className="container mx-auto px-4 py-16">{t('product_not_found')}</div>
+      );
+    };
 
 export default ProductDetailPage;
         </div>
