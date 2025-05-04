@@ -12,7 +12,7 @@ export const products: Product[] = [
     id: 'beauty-led-facial',
     name: 'アドバンスLEDフェイシャルデバイス',
     brand: 'ビューティーテックプロ',
-    // category: getCategoryById('beauty'),
+     category: getCategoryById('beauty'),
     price: 12999,
     rating: 4.7,
     description: `家庭用LEDフェイシャルデバイス。肌トラブルに効果があります。`,
@@ -80,9 +80,9 @@ export const products: Product[] = [
       }
     ],
     images: [
-      'https://images.pexels.com/photos/3851868/pexels-photo-3851868.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-      'https://images.pexels.com/photos/3865560/pexels-photo-3865560.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-      'https://images.pexels.com/photos/4047362/pexels-photo-4047362.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+      '/images/beauty-led-facial-1.jpg',
+      '/images/beauty-led-facial-2.jpg',
+      '/images/beauty-led-facial-3.jpg'
     ],
     imageAlts: [
       'LEDフェイシャルデバイス',
@@ -100,7 +100,7 @@ export const products: Product[] = [
     id: 'beauty-vitamin-serum',
     name: 'ビタミンC ブライトニングセラム',
     brand: 'ナチュールグロウ',
-   //  category: getCategoryById('beauty'),
+     category: getCategoryById('beauty'),
     price: 4299,
     rating: 4.5,
     description: `顔用ビタミンCセラム。肌を明るくします。`,
@@ -168,9 +168,9 @@ export const products: Product[] = [
       }
     ],
     images: [
-      'https://images.pexels.com/photos/4465124/pexels-photo-4465124.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-      'https://images.pexels.com/photos/4041392/pexels-photo-4041392.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-      'https://images.pexels.com/photos/6621462/pexels-photo-6621462.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+      '/images/beauty-vitamin-serum-1.jpg',
+      '/images/beauty-vitamin-serum-2.jpg',
+      '/images/beauty-vitamin-serum-3.jpg'
     ],
     imageAlts: [
       'ビタミンCセラムボトル',
@@ -190,7 +190,7 @@ export const products: Product[] = [
     id: 'electronics-smart-speaker',
     name: 'ボイスプロ スマートスピーカー',
     brand: 'テックソニック',
-   //  category: getCategoryById('electronics'),
+  category: getCategoryById('electronics'),
     price: 7999,
     rating: 4.6,
     description: `音声アシスタント搭載のスマートスピーカー。スマートホームデバイスと連携します。`,
@@ -259,9 +259,9 @@ export const products: Product[] = [
       }
     ],
     images: [
-      'https://images.pexels.com/photos/14595756/pexels-photo-14595756.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-      'https://images.pexels.com/photos/1279107/pexels-photo-1279107.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-      'https://images.pexels.com/photos/230554/pexels-photo-230554.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+      '/images/electronics-smart-speaker-1.jpg',
+      '/images/electronics-smart-speaker-2.jpg',
+      '/images/electronics-smart-speaker-1.jpg'
     ],
     imageAlts: [
       'スマートスピーカー',
@@ -279,7 +279,7 @@ export const products: Product[] = [
     id: 'electronics-fitness-tracker',
     name: 'ヘルスシンク フィットネストラッカー',
     brand: 'ライフウェル',
-   //  category: getCategoryById('electronics'),
+     category: getCategoryById('electronics'),
     price: 8999,
     rating: 4.4,
     description: `歩数、心拍数、睡眠を追跡します。防水設計。`,
@@ -348,9 +348,9 @@ export const products: Product[] = [
       }
     ],
     images: [
-      'https://images.pexels.com/photos/437038/pexels-photo-437038.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-      'https://images.pexels.com/photos/267394/pexels-photo-267394.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-      'https://images.pexels.com/photos/4498475/pexels-photo-4498475.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+      '/images/electronics-fitness-tracker-1.jpg',
+      '/images/electronics-fitness-tracker-2.jpg',
+      '/images/electronics-fitness-tracker-3.jpg'
     ],
     imageAlts: [
       'フィットネストラッカー',
@@ -370,7 +370,7 @@ export const products: Product[] = [
     id: 'fashion-eco-sneakers',
     name: 'エコステップ リサイクルスニーカー',
     brand: 'グリーンスレッド',
-   //  category: getCategoryById('fashion'),
+     category: getCategoryById('fashion'),
     price: 8999, 
     rating: 4.2,
     description: `リサイクル素材から作られたスタイリッシュなスニーカー。`,
@@ -410,9 +410,9 @@ export const products: Product[] = [
        { question: 'エコステップスニーカーのお手入れ方法は？', answer: `湿らせた布と中性石鹸での部分洗いをお勧めします。リサイクル素材とコルクインソールの完全性を維持するために、洗濯機や乾燥機の使用は避けてください。`}
     ],
      images: [
-      'https://images.pexels.com/photos/1598505/pexels-photo-1598505.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', // プレースホルダー
-      'https://images.pexels.com/photos/267202/pexels-photo-267202.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', // プレースホルダー
-      'https://images.pexels.com/photos/1478442/pexels-photo-1478442.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1' // プレースホルダー
+      '/images/efashion-eco-sneakers-1.jpg',
+      '/images/efashion-eco-sneakers-2.jpg',
+      '/images/efashion-eco-sneakers-3.jpg'
     ],
     imageAlts: [
       'リサイクルスニーカーのペア',
