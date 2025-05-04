@@ -21,6 +21,15 @@ const translations: { [locale: string]: LocaleData } = {
     tech_explanation: "Tech Explanation",
     diagnostic_tool: "Diagnostic Tool",
 
+    // Language selector and optimization toggle
+    language_selector: {
+      label: "Language"
+    },
+    optimization: {
+      on: "AI Optimization: ON",
+      off: "AI Optimization: OFF"
+    },
+
     // Category Data (Name and Description)
     category: {
       beauty: {
@@ -50,6 +59,23 @@ const translations: { [locale: string]: LocaleData } = {
     unknown_category: "Unknown Category",
     // CategoryHighlights Alt text
     category_alt_text: "{categoryName} category featuring optimized products", // Interpolation key
+    
+    // Product Detail Page UI elements
+    product_detail: {
+      optimization: {
+        optimized: "Optimized",
+        standard: "Standard",
+        status_optimized: "Showing AI-optimized content",
+        status_standard: "Showing basic content"
+      },
+      structured_data: {
+        title: "Product Structured Data (JSON-LD)",
+        description: "This structured data helps AI understand the product details.",
+        unavailable: "Structured data is not available when AI Optimization is turned off.",
+        enable_button: "Enable AI Optimization",
+        tooltip: "JSON-LD structured data for search engines and AI"
+      }
+    },
 
     // Homepage content
     hero: {
@@ -110,6 +136,14 @@ const translations: { [locale: string]: LocaleData } = {
     product: {
       addToCart: "Add to Cart",
       details: "Details",
+      features: "Features",
+      specifications: "Specifications",
+      tooltip: {
+        optimized_description: "Optimized product description",
+        basic_description: "Basic product description",
+        optimized_features: "Optimized feature list",
+        basic_features: "Basic feature list"
+      }
     },
     greeting: "Hello",
     farewell: "Goodbye",
@@ -121,6 +155,15 @@ const translations: { [locale: string]: LocaleData } = {
     // --- Use category keys below for header ---
     tech_explanation: "技術解説",
     diagnostic_tool: "診断ツール",
+
+    // Language selector and optimization toggle
+    language_selector: {
+      label: "言語"
+    },
+    optimization: {
+      on: "AI最適化: ON",
+      off: "AI最適化: OFF"
+    },
 
     // Category Data (Name and Description) - Japanese
     category: {
@@ -151,6 +194,23 @@ const translations: { [locale: string]: LocaleData } = {
     unknown_category: "不明なカテゴリ",
     // CategoryHighlights Alt text - Japanese
     category_alt_text: "最適化された商品を特集する{categoryName}カテゴリ", // Interpolation key
+    
+    // Product Detail Page UI elements - Japanese
+    product_detail: {
+      optimization: {
+        optimized: "最適化あり",
+        standard: "最適化なし",
+        status_optimized: "AI推薦に最適化されたコンテンツを表示中",
+        status_standard: "基本的なコンテンツを表示中"
+      },
+      structured_data: {
+        title: "商品構造化データ (JSON-LD)",
+        description: "この構造化データはAIが商品詳細を理解するのに役立ちます。",
+        unavailable: "AI最適化がオフの場合、構造化データは利用できません。",
+        enable_button: "AI最適化を有効にする",
+        tooltip: "検索エンジンとAI向けのJSON-LD構造化データ"
+      }
+    },
 
     // Homepage content - Japanese
     hero: {
@@ -211,6 +271,14 @@ const translations: { [locale: string]: LocaleData } = {
     product: {
       addToCart: "カートに入れる",
       details: "詳細",
+      features: "機能",
+      specifications: "仕様",
+      tooltip: {
+        optimized_description: "最適化された商品説明",
+        basic_description: "基本的な商品説明",
+        optimized_features: "最適化された機能リスト",
+        basic_features: "基本的な機能リスト"
+      }
     },
     greeting: "こんにちは",
     farewell: "さようなら",
