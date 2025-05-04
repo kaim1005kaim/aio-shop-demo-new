@@ -1,5 +1,6 @@
 import React, { createContext, useState, useContext, ReactNode, useEffect } from 'react';
-import { getLocale, setLocale, t as translate } from '../data/localization';
+// '../data/localization' から正しくインポートし、名前の衝突を避けるために別名も使用
+import { getLocale, setLocale as setLocaleInData, t as translateFromData } from '../data/localization';
 
 interface LocalizationContextType {
   locale: string;
@@ -14,25 +15,17 @@ export const useLocalization = () => {
   if (context === undefined) {
     throw new Error('useLocalization must be used within a LocalizationProvider');
   }
-  return context;
+  return context; // これは元々正しい
 };
 
 interface LocalizationProviderProps {
   children: ReactNode;
 }
 
-// ローカルストレージから言語設定を取得する関数
-const getStoredLocale = (): string => {
-  if (typeof window === 'undefined') return defaultLocale;
-  return localStorage.getItem('locale') || defaultLocale;
-};
-
-// 翻訳関数
-const translate = (key: string, locale: string): string => {
-  return localization[locale]?.[key] || localization[defaultLocale][key] || key;
-};
+// --- LocalizationProvider 外の不要な関数定義は削除 ---
 
 export const LocalizationProvider: React.FC<LocalizationProviderProps> = ({ children }) => {
+  // useState の初期化は getLocale() でOK
   const [locale, setLocaleState] = useState(getLocale());
 
   useEffect(() => {
@@ -40,17 +33,24 @@ export const LocalizationProvider: React.FC<LocalizationProviderProps> = ({ chil
     document.documentElement.lang = locale;
   }, [locale]);
 
+  // setLocale ハンドラを修正: data層の関数を呼び出し、Reactのstateも更新
   const handleSetLocale = (newLocale: string) => {
-    if (localization[newLocale]) {
-      localStorage.setItem('locale', newLocale);
-      setLocaleState(newLocale);
-    }
+    // ここで newLocale が有効な言語コードかチェックするロジックを追加しても良い
+    // (例: importしたtranslationsオブジェクトのキーに存在するか確認するなど)
+    // 今回はシンプルに data 層の関数を呼ぶ
+    setLocaleInData(newLocale); // data層の setLocale を実行 (localStorage 等を更新)
+    setLocaleState(newLocale);  // React の state を更新して再レンダリングをトリガー
   };
 
-  const t = (key: string) => translate(key, locale);
+  // --- t 関数の再定義は不要 ---
 
+  // Provider に渡す value を修正: インポートした関数と、修正したハンドラを渡す
   return (
-    <LocalizationContext.Provider value={{ locale, setLocale: handleSetLocale, t }}>
+    <LocalizationContext.Provider value={{
+      locale,                // 現在のロケール state
+      setLocale: handleSetLocale, // 修正したロケール設定関数
+      t: translateFromData   // data層からインポートした翻訳関数を 't' として渡す
+    }}>
       {children}
     </LocalizationContext.Provider>
   );
