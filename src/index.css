@@ -1,0 +1,73 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary-color: #3b82f6;
+  --secondary-color: #14b8a6;
+  --accent-color: #f97316;
+  --success-color: #22c55e;
+  --warning-color: #eab308;
+  --error-color: #ef4444;
+}
+
+body {
+  @apply font-sans text-gray-800 antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  @apply font-medium leading-tight;
+}
+
+.ai-highlight {
+  @apply transition-all duration-300;
+}
+
+.ai-highlight-active {
+  @apply bg-blue-50 border-blue-300 shadow-sm;
+}
+
+.ai-toggle-switch {
+  @apply relative inline-flex items-center cursor-pointer;
+}
+
+.ai-toggle-slider {
+  width: 2.75rem; /* w-11 */
+  height: 1.5rem; /* h-6 */
+  @apply bg-gray-200 rounded-full 
+         peer-focus:ring-4 peer-focus:ring-blue-300 
+         peer-checked:after:translate-x-full 
+         peer-checked:after:border-white 
+         after:content-[''] 
+         after:absolute after:top-0.5 after:left-[2px] 
+         after:bg-white after:border-gray-300 
+         after:border after:rounded-full after:h-5 
+         after:w-5 after:transition-all 
+         peer-checked:bg-blue-600;
+}
+
+.tooltip {
+  @apply invisible absolute z-10 inline-block px-3 py-2 text-sm 
+         font-medium text-white transition-opacity duration-300 
+         bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip 
+         group-hover:visible group-hover:opacity-100;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+@keyframes highlightPulse {
+  0% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.5); }
+  70% { box-shadow: 0 0 0 10px rgba(59, 130, 246, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0); }
+}
+
+.pulse-highlight {
+  animation: highlightPulse 2s infinite;
+}
