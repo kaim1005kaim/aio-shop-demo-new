@@ -66,7 +66,7 @@ export const products: Product[] = [
       },
       {
         question: 'Is the Advanced LED Facial Device safe for all skin types?',
-        answer: 'Yes, the device is FDA-approved and safe for all skin types and tones. The LED technology is non-invasive and doesn\\'t use harmful UV rays. However, if you have a specific skin condition or are using photosensitizing medications, we recommend consulting with a dermatologist before use. Always avoid looking directly at the lights and use the included eye protection.'
+        answer: 'Yes, the device is FDA-approved and safe for all skin types and tones. The LED technology is non-invasive and doesn\'t use harmful UV rays. However, if you have a specific skin condition or are using photosensitizing medications, we recommend consulting with a dermatologist before use. Always avoid looking directly at the lights and use the included eye protection.'
       },
       {
         question: 'Can I use the LED device with my regular skincare products?',
