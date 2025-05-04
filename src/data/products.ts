@@ -1,6 +1,7 @@
 // src/data/products.ts を修正
 import { Product } from '../types/product';
 import { categories } from './categories';
+onsole.log('--- products.ts is being initialized ---');
 
 // カテゴリIDからカテゴリを取得する関数
 const getCategoryById = (id: string) => categories.find(c => c.id === id) || categories[0];
