@@ -140,13 +140,13 @@ const TechnicalPage: React.FC = () => {
               </div>
               
               <div className="bg-blue-50 border border-blue-100 rounded-lg p-6">
-                <h3 className="text-xl font-semibold mb-3">Structured Content Organization</h3>
+                <h3 className="text-xl font-semibold mb-3">{t('technical_page.key_elements.content_organization.title', 'Structured Content Organization')}</h3>
                 <p className="text-gray-700 mb-4">
-                  Using proper semantic HTML elements helps AI understand the hierarchy and relationship of information on your page.
+                  {t('technical_page.key_elements.content_organization.description', 'Using proper semantic HTML elements helps AI understand the hierarchy and relationship of information on your page.')}
                 </p>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <h4 className="font-medium text-gray-900 mb-2">Standard Approach:</h4>
+                    <h4 className="font-medium text-gray-900 mb-2">{t('technical_page.key_elements.content_organization.standard', 'Standard Approach:')}</h4>
                     <div className="bg-gray-800 text-gray-200 p-4 rounded text-sm overflow-x-auto">
                       <pre>
 {`<div>
@@ -161,7 +161,7 @@ const TechnicalPage: React.FC = () => {
                     </div>
                   </div>
                   <div>
-                    <h4 className="font-medium text-gray-900 mb-2">AI-Optimized Approach:</h4>
+                    <h4 className="font-medium text-gray-900 mb-2">{t('technical_page.key_elements.content_organization.optimized', 'AI-Optimized Approach:')}</h4>
                     <div className="bg-gray-800 text-gray-200 p-4 rounded text-sm overflow-x-auto">
                       <pre>
 {`<article itemscope itemtype="https://schema.org/Product">
@@ -187,105 +187,47 @@ const TechnicalPage: React.FC = () => {
           </div>
           
           <div className="mb-12">
-            <h2 className="text-2xl font-bold mb-4">Implementation Checklist</h2>
+            <h2 className="text-2xl font-bold mb-4">{t('technical_page.checklist.headline', 'Implementation Checklist')}</h2>
             
             <div className="space-y-4">
-              <div className="flex items-start">
-                <div className="h-6 w-6 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-medium mr-3 flex-shrink-0">
-                  1
+              {t('technical_page.checklist.items', [
+                { title: "Implement JSON-LD Structured Data", description: "Include complete Product schema with all available fields including offers, brand, and ratings." },
+                { title: "Optimize Product Descriptions", description: "Include specific details, measurements, materials, and use cases rather than vague marketing language." },
+                { title: "Add Detailed Alt Text for All Images", description: "Include product name, key features, and relevant context in alt text for all product images." },
+                { title: "Implement FAQ Schema", description: "Create comprehensive FAQs addressing common questions, with detailed answers." },
+                { title: "Organize Content with Semantic HTML", description: "Use proper H1-H6 headings, lists, tables, and semantic elements for content organization." },
+                { title: "Create Specification Tables", description: "Present technical specifications in a structured table format with clear labels." },
+                { title: "Add Comparative Information", description: "Provide clear comparisons with similar products or previous versions to help position the product." }
+              ]).map((item, index) => (
+                <div key={index} className="flex items-start">
+                  <div className="h-6 w-6 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-medium mr-3 flex-shrink-0">
+                    {index + 1}
+                  </div>
+                  <div>
+                    <h3 className="font-medium text-gray-900">{item.title}</h3>
+                    <p className="text-gray-700">
+                      {item.description}
+                    </p>
+                  </div>
                 </div>
-                <div>
-                  <h3 className="font-medium text-gray-900">Implement JSON-LD Structured Data</h3>
-                  <p className="text-gray-700">
-                    Include complete Product schema with all available fields including offers, brand, and ratings.
-                  </p>
-                </div>
-              </div>
-              
-              <div className="flex items-start">
-                <div className="h-6 w-6 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-medium mr-3 flex-shrink-0">
-                  2
-                </div>
-                <div>
-                  <h3 className="font-medium text-gray-900">Optimize Product Descriptions</h3>
-                  <p className="text-gray-700">
-                    Include specific details, measurements, materials, and use cases rather than vague marketing language.
-                  </p>
-                </div>
-              </div>
-              
-              <div className="flex items-start">
-                <div className="h-6 w-6 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-medium mr-3 flex-shrink-0">
-                  3
-                </div>
-                <div>
-                  <h3 className="font-medium text-gray-900">Add Detailed Alt Text for All Images</h3>
-                  <p className="text-gray-700">
-                    Include product name, key features, and relevant context in alt text for all product images.
-                  </p>
-                </div>
-              </div>
-              
-              <div className="flex items-start">
-                <div className="h-6 w-6 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-medium mr-3 flex-shrink-0">
-                  4
-                </div>
-                <div>
-                  <h3 className="font-medium text-gray-900">Implement FAQ Schema</h3>
-                  <p className="text-gray-700">
-                    Create comprehensive FAQs addressing common questions, with detailed answers.
-                  </p>
-                </div>
-              </div>
-              
-              <div className="flex items-start">
-                <div className="h-6 w-6 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-medium mr-3 flex-shrink-0">
-                  5
-                </div>
-                <div>
-                  <h3 className="font-medium text-gray-900">Organize Content with Semantic HTML</h3>
-                  <p className="text-gray-700">
-                    Use proper H1-H6 headings, lists, tables, and semantic elements for content organization.
-                  </p>
-                </div>
-              </div>
-              
-              <div className="flex items-start">
-                <div className="h-6 w-6 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-medium mr-3 flex-shrink-0">
-                  6
-                </div>
-                <div>
-                  <h3 className="font-medium text-gray-900">Create Specification Tables</h3>
-                  <p className="text-gray-700">
-                    Present technical specifications in a structured table format with clear labels.
-                  </p>
-                </div>
-              </div>
-              
-              <div className="flex items-start">
-                <div className="h-6 w-6 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-medium mr-3 flex-shrink-0">
-                  7
-                </div>
-                <div>
-                  <h3 className="font-medium text-gray-900">Add Comparative Information</h3>
-                  <p className="text-gray-700">
-                    Provide clear comparisons with similar products or previous versions to help position the product.
-                  </p>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
           
           <div className="bg-blue-50 border border-blue-100 rounded-lg p-6 mb-8">
-            <h2 className="text-xl font-semibold mb-3">Testing Your AI Optimization</h2>
+            <h2 className="text-xl font-semibold mb-3">{t('technical_page.testing.headline', 'Testing Your AI Optimization')}</h2>
             <p className="text-gray-700 mb-4">
-              After implementing these optimizations, you can test their effectiveness by:
+              {t('technical_page.testing.description', 'After implementing these optimizations, you can test their effectiveness by:')}
             </p>
             <ul className="list-disc pl-6 space-y-2 text-gray-700">
-              <li>Using our AI Optimization Score Tool to evaluate your page's readiness</li>
-              <li>Testing with various AI shopping assistants to see if your product is recommended</li>
-              <li>Validating your structured data with Google's Rich Results Test and Schema.org Validator</li>
-              <li>Monitoring changes in traffic and conversion rates from AI-powered search tools</li>
+              {t('technical_page.testing.list', [
+                'Using our AI Optimization Score Tool to evaluate your page\'s readiness',
+                'Testing with various AI shopping assistants to see if your product is recommended',
+                'Validating your structured data with Google\'s Rich Results Test and Schema.org Validator',
+                'Monitoring changes in traffic and conversion rates from AI-powered search tools'
+              ]).map((item, index) => (
+                <li key={index}>{item}</li>
+              ))}
             </ul>
           </div>
           
@@ -294,7 +236,7 @@ const TechnicalPage: React.FC = () => {
               href="/diagnostic-tool" 
               className="inline-flex px-6 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors"
             >
-              Try Our AI Optimization Score Tool
+              {t('technical_page.cta', 'Try Our AI Optimization Score Tool')}
             </a>
           </div>
         </div>

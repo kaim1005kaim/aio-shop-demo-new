@@ -4,6 +4,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useAIOptimization } from '../../contexts/AIOptimizationContext';
 import { useLocalization } from '../../contexts/LocalizationContext';
+import { categories } from '../../data/categories';
 
 const Header: React.FC = () => {
   const { isOptimized, toggleOptimization } = useAIOptimization();
@@ -21,15 +22,16 @@ const Header: React.FC = () => {
             <Link to="/" className="text-gray-700 hover:text-blue-600">
               {t('home')}
             </Link>
-            <Link to="/category/beauty" className="text-gray-700 hover:text-blue-600">
-              {t('beauty')}
-            </Link>
-            <Link to="/category/electronics" className="text-gray-700 hover:text-blue-600">
-              {t('electronics')}
-            </Link>
-            <Link to="/category/fashion" className="text-gray-700 hover:text-blue-600">
-              {t('fashion')}
-            </Link>
+                        {/* カテゴリリンクを動的に生成 */}
+            {categories.map((category) => (
+              <Link
+                key={category.id}
+                to={`/category/${category.id}`}
+                className="text-gray-700 hover:text-blue-600"
+              >
+                {t(`category.${category.id}.name`)}
+              </Link>
+            ))}
             <Link to="/tech-explanation" className="text-gray-700 hover:text-blue-600">
               {t('tech_explanation')}
             </Link>
@@ -40,7 +42,7 @@ const Header: React.FC = () => {
           
           <div className="flex items-center space-x-4">
             <div className="text-sm flex items-center">
-              <span className="mr-2 text-gray-600">言語:</span>
+              <span className="mr-2 text-gray-600">{t('language_selector.label', '言語')}</span>
               <select 
                 value={locale}
                 onChange={(e) => setLocale(e.target.value)}
@@ -59,7 +61,7 @@ const Header: React.FC = () => {
                   : 'bg-gray-200 text-gray-700'
               }`}
             >
-              {isOptimized ? 'AI最適化: ON' : 'AI最適化: OFF'}
+              {isOptimized ? t('optimization.on', 'AI最適化: ON') : t('optimization.off', 'AI最適化: OFF')}
             </button>
           </div>
         </div>

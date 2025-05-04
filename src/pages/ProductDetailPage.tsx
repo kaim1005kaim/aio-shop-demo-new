@@ -74,7 +74,7 @@ const ProductDetailPage: React.FC = () => {
             )}
             <meta property="og:availability" content={product.stock && product.stock > 0 ? "in stock" : "out of stock"} />
             {/* ★↓ 要修正: 実際のサイトドメインに置き換えるか、環境変数から取得 */}
-            <link rel="canonical" href={`https://your-production-domain.com/product/${product.id}`} />
+            <link rel="canonical" href={`https://aio-shop-demo.netlify.app/product/${product.id}`} />
           </>
         )}
       </Helmet>
@@ -102,8 +102,8 @@ const ProductDetailPage: React.FC = () => {
                      : 'bg-transparent text-gray-700'
                  }`}
                >
-                 {/* ボタンのテキストも翻訳対象にするか検討 */}
-                 最適化あり
+                 {/* ボタンテキストを翻訳対応 */}
+                 {t('product_detail.optimization.optimized', '最適化あり')}
                </button>
                <button
                  // isOptimized の値を反転させて toggleOptimization に渡す
@@ -114,13 +114,16 @@ const ProductDetailPage: React.FC = () => {
                      : 'bg-transparent text-gray-700'
                  }`}
                >
-                 {/* ボタンのテキストも翻訳対象にするか検討 */}
-                 最適化なし
+                 {/* ボタンテキストを翻訳対応 */}
+                 {t('product_detail.optimization.standard', '最適化なし')}
                </button>
              </div>
              <span className="ml-3 text-sm text-gray-500">
-               {/* このテキストも翻訳対象にするか検討 */}
-               {isOptimized ? 'AI推薦に最適化されたコンテンツを表示中' : '基本的なコンテンツを表示中'}
+               {/* 状態テキストを翻訳対応 */}
+               {isOptimized 
+                 ? t('product_detail.optimization.status_optimized', 'AI推薦に最適化されたコンテンツを表示中')
+                 : t('product_detail.optimization.status_standard', '基本的なコンテンツを表示中')
+               }
              </span>
            </div>
         </div>
