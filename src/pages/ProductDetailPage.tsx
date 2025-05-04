@@ -1,8 +1,3 @@
-
-// src/pages/ProductDetailPage.tsx
-// src/pages/ProductDetailPage.tsx の更新版
-
-
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
@@ -16,8 +11,6 @@ import AIRecommendationScore from '../components/product/AIRecommendationScore';
 import SuggestedPrompts from '../components/product/SuggestedPrompts';
 import ARViewer from '../components/product/ARViewer';
 
-
-
 import { products } from '../data/products';
 import { useAIOptimization } from '../contexts/AIOptimizationContext';
 import { useLocalization } from '../contexts/LocalizationContext';
@@ -30,32 +23,9 @@ const ProductDetailPage: React.FC = () => {
   const product = products.find(p => p.id === productId);
   
   if (!product) {
-
-    if (!product) {
-      return (
-        <div className="container mx-auto px-4 py-16">{t('product_not_found')}</div>
-      );
-    };
-
-export default ProductDetailPage;
-        </div>
-        
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 mt-6 mb-12">
-          <ProductGallery product={product} />
-          <ProductInfo product={product} />
-        </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-          <AIRecommendationScore product={product} />
-          {isOptimized && <ARViewer product={product} />}
-        </div>
-        
-        <SuggestedPrompts product={product} />
-        <ProductFAQ product={product} />
-        <ProductComparison />
-        <StructuredDataViewer product={product} />
-      </div>;
-
+    return (
+      <div className="container mx-auto px-4 py-16">{t('product_not_found')}</div>
+    );
   }
 
   return (
@@ -94,7 +64,6 @@ export default ProductDetailPage;
               { name: product.name, path: `/product/${product.id}` }
             ]}
           />
-
           
           <div className="flex items-center">
             <div className="flex items-center bg-gray-100 p-1 rounded-md">
@@ -145,4 +114,3 @@ export default ProductDetailPage;
 };
 
 export default ProductDetailPage;
-
