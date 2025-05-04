@@ -54,5 +54,4 @@ export const LocalizationProvider: React.FC<LocalizationProviderProps> = ({ chil
       {children}
     </LocalizationContext.Provider>
   );
-  }; 
 };
