@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { Search, CheckCircle, X, AlertTriangle } from 'lucide-react';
+import { useLocalization } from '../../contexts/LocalizationContext';
 
 const SiteChecker: React.FC = () => {
+  const { t } = useLocalization(); // 翻訳関数を取得
   const [url, setUrl] = useState('');
   const [isAnalyzing, setIsAnalyzing] = useState(false);
   const [results, setResults] = useState<null | {
@@ -139,9 +141,9 @@ const SiteChecker: React.FC = () => {
   return (
     <div className="max-w-4xl mx-auto">
       <div className="mb-8">
-        <h2 className="text-2xl font-bold mb-2">AI Optimization Score Checker</h2>
+        <h2 className="text-2xl font-bold mb-2">{t('site_checker.title', 'AI Optimization Score Checker')}</h2>
         <p className="text-gray-600">
-          Enter a product URL to check how well it's optimized for AI recommendations.
+          {t('site_checker.description', 'Enter a product URL to check how well it\'s optimized for AI recommendations.')}
         </p>
       </div>
       
@@ -155,7 +157,7 @@ const SiteChecker: React.FC = () => {
               type="text"
               value={url}
               onChange={(e) => setUrl(e.target.value)}
-              placeholder="Enter a product URL (e.g., https://example.com/product)"
+              placeholder={t('site_checker.input_placeholder', 'Enter a product URL (e.g., https://example.com/product)')}
               className="block w-full rounded-lg border border-gray-300 pl-10 pr-3 py-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
               required
             />
@@ -165,7 +167,7 @@ const SiteChecker: React.FC = () => {
             disabled={isAnalyzing}
             className="px-6 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition-colors disabled:bg-blue-400"
           >
-            {isAnalyzing ? 'Analyzing...' : 'Check Score'}
+            {isAnalyzing ? t('site_checker.analyzing', 'Analyzing...') : t('site_checker.check_button', 'Check Score')}
           </button>
         </div>
       </form>
@@ -173,7 +175,7 @@ const SiteChecker: React.FC = () => {
       {isAnalyzing && (
         <div className="text-center py-12">
           <div className="inline-block w-12 h-12 border-4 border-blue-200 border-t-blue-600 rounded-full animate-spin"></div>
-          <p className="mt-4 text-gray-600">Analyzing website for AI optimization...</p>
+          <p className="mt-4 text-gray-600">{t('site_checker.analyzing_message', 'Analyzing website for AI optimization...')}</p>
         </div>
       )}
       

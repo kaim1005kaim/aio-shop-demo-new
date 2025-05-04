@@ -1,23 +1,25 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
+import { useLocalization } from '../contexts/LocalizationContext';
 
 const TechnicalPage: React.FC = () => {
+  const { t } = useLocalization(); // 翻訳関数を取得
   return (
     <>
       <Helmet>
-        <title>Technical Explanation - AI Optimization Techniques</title>
+        <title>{t('technical_page.meta.title', 'Technical Explanation - AI Optimization Techniques')}</title>
         <meta 
           name="description" 
-          content="Learn about the technical implementation of AI optimization for product pages that improve visibility in AI-powered shopping assistants."
+          content={t('technical_page.meta.description', 'Learn about the technical implementation of AI optimization for product pages that improve visibility in AI-powered shopping assistants.')}
         />
       </Helmet>
 
       <div className="bg-gradient-to-r from-blue-600 to-blue-700 text-white py-12">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-3xl md:text-4xl font-bold mb-4">Technical Implementation Guide</h1>
+            <h1 className="text-3xl md:text-4xl font-bold mb-4">{t('technical_page.hero.headline', 'Technical Implementation Guide')}</h1>
             <p className="text-xl text-blue-100">
-              How to optimize your product pages for AI recommendations
+              {t('technical_page.hero.subheadline', 'How to optimize your product pages for AI recommendations')}
             </p>
           </div>
         </div>
@@ -26,21 +28,23 @@ const TechnicalPage: React.FC = () => {
       <div className="container mx-auto px-4 py-12">
         <div className="max-w-4xl mx-auto">
           <div className="mb-12">
-            <h2 className="text-2xl font-bold mb-4">Understanding AI Perception</h2>
+            <h2 className="text-2xl font-bold mb-4">{t('technical_page.understanding.headline', 'Understanding AI Perception')}</h2>
             <p className="text-gray-700 mb-4">
-              AI shopping assistants like ChatGPT, Claude, and Gemini perceive web content differently than humans. 
-              While traditional SEO focuses on keyword targeting and link building, AI optimization requires 
-              a focus on structured data, comprehensive product information, and clear, semantic content organization.
+              {t('technical_page.understanding.paragraph1', 'AI shopping assistants like ChatGPT, Claude, and Gemini perceive web content differently than humans. While traditional SEO focuses on keyword targeting and link building, AI optimization requires a focus on structured data, comprehensive product information, and clear, semantic content organization.')}
             </p>
             <p className="text-gray-700 mb-4">
-              When these AI systems analyze product pages to make recommendations, they prioritize pages that:
+              {t('technical_page.understanding.paragraph2', 'When these AI systems analyze product pages to make recommendations, they prioritize pages that:')}
             </p>
             <ul className="list-disc pl-6 space-y-2 text-gray-700 mb-4">
-              <li>Have clear, structured information that can be easily parsed</li>
-              <li>Provide comprehensive product details rather than marketing fluff</li>
-              <li>Include technical specifications in a standardized format</li>
-              <li>Answer common questions about the product</li>
-              <li>Contain proper metadata and image descriptions</li>
+              {t('technical_page.understanding.list', [
+                'Have clear, structured information that can be easily parsed',
+                'Provide comprehensive product details rather than marketing fluff',
+                'Include technical specifications in a standardized format',
+                'Answer common questions about the product',
+                'Contain proper metadata and image descriptions'
+              ]).map((item, index) => (
+                <li key={index}>{item}</li>
+              ))}
             </ul>
           </div>
 

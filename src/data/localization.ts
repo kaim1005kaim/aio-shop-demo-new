@@ -53,6 +53,42 @@ const translations: { [locale: string]: LocaleData } = {
         description: "Innovative cookware, appliances, and kitchen essentials for home chefs."
       }
     },
+    
+    // SiteCheckerコンポーネントの翻訳
+    site_checker: {
+      title: "AI最適化スコアチェッカー",
+      description: "商品URLを入力して、AIレコメンデーション向けにどれだけ最適化されているかをチェックします。",
+      input_placeholder: "商品URLを入力（例：https://example.com/product）",
+      check_button: "スコアをチェック",
+      analyzing: "分析中...",
+      analyzing_message: "AI最適化のためにウェブサイトを分析しています...",
+      score_title: "AI最適化スコア",
+      url_prefix: "URL: ",
+      category_scores: "カテゴリスコア",
+      key_checks: "主要チェック項目",
+      improvement_recommendations: "改善の推奨",
+      category: {
+        structure: "構造",
+        metadata: "メタデータ",
+        images: "画像",
+        content: "コンテンツ"
+      },
+      checks: {
+        product_schema: "商品スキーマ",
+        faq_schema: "FAQスキーマ",
+        breadcrumb: "パンくずナビゲーション",
+        title_tags: "タイトルタグ",
+        meta_descriptions: "メタ説明",
+        canonical_urls: "正規URL",
+        alt_text: "代替テキストの品質",
+        image_naming: "画像の命名",
+        multiple_views: "複数の商品表示",
+        heading_structure: "見出し構造",
+        feature_lists: "機能リスト",
+        specification_tables: "仕様テーブル"
+      },
+      add_to_improve: "{name}を追加して{category}スコアを改善"
+    },
 
     // Product Detail Page & Fallbacks
     product_not_found: "Product not found",
@@ -282,6 +318,140 @@ const translations: { [locale: string]: LocaleData } = {
     },
     greeting: "こんにちは",
     farewell: "さようなら",
+    
+    // 技術解説ページの翻訳
+    technical_page: {
+      meta: {
+        title: "技術解説 - AI最適化テクニック",
+        description: "AI駆動型ショッピングアシスタントでの可視性を向上させる商品ページのAI最適化の技術的実装について学びます。"
+      },
+      hero: {
+        headline: "技術実装ガイド",
+        subheadline: "商品ページをAIレコメンデーション向けに最適化する方法"
+      },
+      understanding: {
+        headline: "AIの認識理解",
+        paragraph1: "ChatGPT、Claude、GeminiなどのAIショッピングアシスタントは、人間とは異なる方法でウェブコンテンツを認識します。従来のSEOがキーワードターゲティングとリンク構築に焦点を当てているのに対し、AI最適化には構造化データ、包括的な商品情報、明確なセマンティックコンテンツ構成に焦点を当てる必要があります。",
+        paragraph2: "これらのAIシステムが商品ページを分析してレコメンデーションを行う際、以下のようなページを優先します：",
+        list: [
+          "簡単に解析できる明確で構造化された情報を持つ",
+          "マーケティング用語ではなく、包括的な商品詳細を提供する",
+          "標準化された形式で技術仕様を含む",
+          "商品に関する一般的な質問に回答する",
+          "適切なメタデータと画像の説明を含む"
+        ]
+      },
+      key_elements: {
+        headline: "主要な最適化要素",
+        structured_data: {
+          title: "構造化データ（JSON-LD）",
+          description: "JSON-LD形式でschema.orgマークアップを実装することで、AIシステムが標準化された方法で商品情報を理解するのに役立ちます。これはAI最適化の最も重要な要素かもしれません。"
+        },
+        rich_image: {
+          title: "詳細な画像代替テキスト",
+          description: "AIシステムは画像を理解するために代替テキストに大きく依存しています。一般的な代替テキストではなく、商品名、主要機能、コンテキストを含む詳細な説明テキストを提供してください。",
+          standard: "標準的な代替テキスト：",
+          optimized: "AI最適化された代替テキスト："
+        },
+        faq_schema: {
+          title: "FAQスキーマの実装",
+          description: "FAQはユーザーを助けるだけでなく、ユーザーが関連する質問をした際に直接引用できる質問と回答のペアをAIシステムに提供します。"
+        },
+        content_organization: {
+          title: "構造化されたコンテンツ組織",
+          description: "適切なセマンティックHTML要素を使用することで、AIがページ上の情報の階層と関係を理解するのに役立ちます。",
+          standard: "標準的なアプローチ：",
+          optimized: "AI最適化されたアプローチ："
+        }
+      },
+      checklist: {
+        headline: "実装チェックリスト",
+        items: [
+          { title: "JSON-LD構造化データの実装", description: "オファー、ブランド、評価など、利用可能なすべてのフィールドを含む完全な商品スキーマを含めます。" },
+          { title: "商品説明の最適化", description: "曖昧なマーケティング言語ではなく、具体的な詳細、寸法、材料、使用例を含めます。" },
+          { title: "すべての画像に詳細な代替テキストを追加", description: "すべての商品画像の代替テキストに商品名、主要機能、関連するコンテキストを含めます。" },
+          { title: "FAQスキーマの実装", description: "詳細な回答を含む一般的な質問に対する包括的なFAQを作成します。" },
+          { title: "セマンティックHTMLでコンテンツを整理", description: "コンテンツ構成には、適切なH1-H6見出し、リスト、テーブル、セマンティック要素を使用します。" },
+          { title: "仕様テーブルの作成", description: "明確なラベルを持つ構造化されたテーブル形式で技術仕様を提示します。" },
+          { title: "比較情報の追加", description: "商品の位置付けを支援するために、類似商品や以前のバージョンとの明確な比較を提供します。" }
+        ]
+      },
+      testing: {
+        headline: "AI最適化のテスト",
+        description: "これらの最適化を実装した後、以下の方法でその効果をテストできます：",
+        list: [
+          "ページのAI対応度を評価するためにAI最適化スコアツールを使用する",
+          "様々なAIショッピングアシスタントでテストして、あなたの商品が推奨されるかどうかを確認する",
+          "GoogleのリッチリザルトテストとSchema.orgバリデーターであなたの構造化データを検証する",
+          "AI駆動型検索ツールからのトラフィックと変換率の変化を監視する"
+        ]
+      },
+      cta: "AI最適化スコアツールを試す"
+    },
+    
+    // 診断ツールページの翻訳
+    diagnostic_tool_page: {
+      meta: {
+        title: "AI最適化スコアツール - AIOショップ",
+        description: "私たちの診断ツールで、あなたの商品ページがAIレコメンデーションにどれだけ最適化されているかをチェックします。"
+      },
+      hero: {
+        headline: "AI最適化スコアツール",
+        subheadline: "商品ページがAIレコメンデーションにどれだけ最適化されているかを分析します"
+      },
+      about: {
+        headline: "AI最適化スコアについて",
+        description: "私たちのAI最適化スコアは、商品ページのさまざまな要素を分析して、AIの理解とレコメンデーションにどれだけ適した構造になっているかを判断します。このツールは、構造化データ、メタデータ、画像最適化、コンテンツ構造の存在と品質をチェックします。"
+      },
+      checks: {
+        headline: "チェック項目",
+        structure: {
+          title: "構造チェック",
+          items: [
+            "商品構造化データ",
+            "FAQスキーマの実装",
+            "パンくずナビゲーション",
+            "HowToスキーマ（該当する場合）"
+          ]
+        },
+        metadata: {
+          title: "メタデータチェック",
+          items: [
+            "タイトルタグの最適化",
+            "メタ説明の品質",
+            "Openグラフタグ",
+            "正規URLの実装"
+          ]
+        },
+        images: {
+          title: "画像チェック",
+          items: [
+            "代替テキストの品質と長さ",
+            "画像命名規則",
+            "複数の商品表示",
+            "画像キャプション"
+          ]
+        },
+        content: {
+          title: "コンテンツチェック",
+          items: [
+            "見出し構造",
+            "機能リストのフォーマット",
+            "仕様テーブル",
+            "Q&Aコンテンツの構成"
+          ]
+        }
+      },
+      score: {
+        headline: "スコアの解釈",
+        ranges: [
+          { range: "0-40", title: "改善が必要", description: "あなたの商品ページにはAI最適化に必要な多くの重要な要素が欠けています。AIアシスタントはあなたの商品を正確に推奨するのに苦労するでしょう。" },
+          { range: "41-70", title: "平均的", description: "あなたの商品ページにはある程度の最適化がありますが、重要な要素が欠けています。AIアシスタントはあなたの商品を推奨するかもしれませんが、詳細は限られています。" },
+          { range: "71-100", title: "十分に最適化", description: "あなたの商品ページはAIの理解のために十分に構造化されています。AIアシスタントはあなたの商品を正確に推奨し説明することができます。" }
+        ],
+        note: "AI最適化は継続的なプロセスであることを忘れないでください。AI技術が進化するにつれて、最適化の基準も発展し続けるでしょう。商品ページを定期的にテストし、改善を実装することで、AI主導の商取引環境でも商品の可視性を確保できます。"
+      }
+    },
   },
 };
 
