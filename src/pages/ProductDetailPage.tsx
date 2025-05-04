@@ -73,10 +73,7 @@ const ProductDetailPage: React.FC = () => {
               </>
             )}
             <meta property="og:availability" content={product.stock && product.stock > 0 ? "in stock" : "out of stock"} />
-<<<<<<< HEAD
-            {/* ★↓ 要修正: 実際のサイトドメインに置き換えるか、環境変数から取得 */}
-=======
->>>>>>> 0a59cf8d2035e279280413e5f50df5c09591c2b8
+            {/* 実際のサイトドメインを使用 */}
             <link rel="canonical" href={`https://aio-shop-demo.netlify.app/product/${product.id}`} />
           </>
         )}
