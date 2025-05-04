@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <title>Vite Logo</title>
+    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <polygon fill="#646CFF" points="16.0973 0 31.7643 6.14 29.2383 23.9 16.0973 30.639 2.95629 23.9 0.430294 6.14"></polygon>
+        <polygon fill="#FFFFFF" points="16.0973 3.38 26.3193 7.74 24.5103 20.29 16.0973 24.99 7.68429 20.29 5.87529 7.74"></polygon>
+    </g>
+</svg>
