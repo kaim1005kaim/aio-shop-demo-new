@@ -1,5 +1,5 @@
 import React, { createContext, useState, useContext, ReactNode, useEffect } from 'react';
-import { localization, defaultLocale } from '../data/localization';
+import { getLocale, setLocale, t as translate } from '../data/localization';
 
 interface LocalizationContextType {
   locale: string;
@@ -33,7 +33,7 @@ const translate = (key: string, locale: string): string => {
 };
 
 export const LocalizationProvider: React.FC<LocalizationProviderProps> = ({ children }) => {
-  const [locale, setLocaleState] = useState(getStoredLocale());
+  const [locale, setLocaleState] = useState(getLocale());
 
   useEffect(() => {
     // HTMLのlang属性を更新
