@@ -1,5 +1,3 @@
-
-// src/data/localization.ts
 interface LocalizationStrings {
   [key: string]: {
     [key: string]: string;
@@ -19,6 +17,7 @@ export const localization: LocalizationStrings = {
     "toggle_optimization": "Toggle AI Optimization",
     
     // 商品詳細
+    "product_not_found": "Product not found",
     "product_details": "Product Details",
     "price": "Price",
     "rating": "Rating",
@@ -42,6 +41,7 @@ export const localization: LocalizationStrings = {
     "toggle_optimization": "AI最適化の切替",
     
     // 商品詳細
+    "product_not_found": "商品が見つかりません",
     "product_details": "商品詳細",
     "price": "価格",
     "rating": "評価",
@@ -60,6 +60,7 @@ export const defaultLocale = 'ja';
 
 // 言語取得関数
 export function getLocale(): string {
+  if (typeof window === 'undefined') return defaultLocale;
   return localStorage.getItem('locale') || defaultLocale;
 }
 
@@ -74,3 +75,5 @@ export function setLocale(locale: string): void {
   if (localization[locale]) {
     localStorage.setItem('locale', locale);
     window.location.reload();
+  }
+}
