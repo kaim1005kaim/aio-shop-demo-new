@@ -1,125 +1,68 @@
-import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Zap } from 'lucide-react';
+// src/components/layout/Header.tsx
+
+import React from 'react';
+import { Link } from 'react-router-dom';
 import { useAIOptimization } from '../../contexts/AIOptimizationContext';
-import AIToggle from '../ui/AIToggle';
+import { useLocalization } from '../../contexts/LocalizationContext';
 
 const Header: React.FC = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-  const location = useLocation();
-  const { isOptimized } = useAIOptimization();
-
-  const categories = [
-    { id: 'beauty', name: 'Beauty' },
-    { id: 'electronics', name: 'Electronics' },
-    { id: 'fashion', name: 'Fashion' },
-    { id: 'health', name: 'Health Foods' },
-    { id: 'kitchen', name: 'Kitchen' },
-  ];
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  useEffect(() => {
-    setIsMenuOpen(false);
-  }, [location]);
-
+  const { isOptimized, toggleOptimization } = useAIOptimization();
+  const { t, locale, setLocale } = useLocalization();
+  
   return (
-    <header 
-      className={`sticky top-0 z-50 transition-all duration-300 ${
-        scrolled ? 'bg-white shadow-md' : 'bg-white/90 backdrop-blur-sm'
-      }`}
-    >
-      <div className="container mx-auto px-4 py-4">
-        <div className="flex justify-between items-center">
-          <Link to="/" className="flex items-center space-x-2">
-            <Zap className="h-8 w-8 text-blue-600" />
-            <span className="text-2xl font-bold text-gray-900">AIO Shop</span>
-            <div className={`ml-2 px-2 py-0.5 text-xs rounded ${isOptimized ? 'bg-blue-100 text-blue-800' : 'bg-gray-100 text-gray-700'}`}>
-              {isOptimized ? 'AI Optimized' : 'Standard'}
-            </div>
+    <header className="bg-white shadow-sm">
+      <div className="container mx-auto px-4">
+        <div className="flex items-center justify-between py-4">
+          <Link to="/" className="text-blue-600 font-bold text-xl">
+            {t('site_name')}
           </Link>
-
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
-            <div className="flex space-x-6">
-              {categories.map((category) => (
-                <Link 
-                  key={category.id}
-                  to={`/category/${category.id}`}
-                  className="text-gray-700 hover:text-blue-600 transition-colors"
-                >
-                  {category.name}
-                </Link>
-              ))}
-            </div>
-            <Link 
-              to="/tech-explanation"
-              className="text-gray-700 hover:text-blue-600 transition-colors"
-            >
-              Technology
+          
+          <nav className="hidden md:flex space-x-6">
+            <Link to="/" className="text-gray-700 hover:text-blue-600">
+              {t('home')}
             </Link>
-            <Link 
-              to="/diagnostic-tool"
-              className="text-gray-700 hover:text-blue-600 transition-colors"
-            >
-              Score Tool
+            <Link to="/category/beauty" className="text-gray-700 hover:text-blue-600">
+              {t('beauty')}
             </Link>
-            <AIToggle />
+            <Link to="/category/electronics" className="text-gray-700 hover:text-blue-600">
+              {t('electronics')}
+            </Link>
+            <Link to="/category/fashion" className="text-gray-700 hover:text-blue-600">
+              {t('fashion')}
+            </Link>
+            <Link to="/tech-explanation" className="text-gray-700 hover:text-blue-600">
+              {t('tech_explanation')}
+            </Link>
+            <Link to="/diagnostic-tool" className="text-gray-700 hover:text-blue-600">
+              {t('diagnostic_tool')}
+            </Link>
           </nav>
-
-          {/* Mobile Menu Button */}
-          <div className="flex items-center space-x-4 md:hidden">
-            <AIToggle />
-            <button 
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-gray-700 hover:text-blue-600 transition-colors"
+          
+          <div className="flex items-center space-x-4">
+            <div className="text-sm flex items-center">
+              <span className="mr-2 text-gray-600">言語:</span>
+              <select 
+                value={locale}
+                onChange={(e) => setLocale(e.target.value)}
+                className="border border-gray-300 rounded px-2 py-1"
+              >
+                <option value="ja">日本語</option>
+                <option value="en">English</option>
+              </select>
+            </div>
+            
+            <button
+              onClick={toggleOptimization}
+              className={`px-3 py-1.5 rounded-md text-sm ${
+                isOptimized 
+                  ? 'bg-blue-600 text-white' 
+                  : 'bg-gray-200 text-gray-700'
+              }`}
             >
-              {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              {isOptimized ? 'AI最適化: ON' : 'AI最適化: OFF'}
             </button>
           </div>
         </div>
-
-        {/* Mobile Navigation */}
-        {isMenuOpen && (
-          <nav className="md:hidden mt-4 pb-2 animate-fade-in">
-            <ul className="space-y-3">
-              {categories.map((category) => (
-                <li key={category.id}>
-                  <Link 
-                    to={`/category/${category.id}`}
-                    className="text-gray-700 hover:text-blue-600 transition-colors block py-2"
-                  >
-                    {category.name}
-                  </Link>
-                </li>
-              ))}
-              <li>
-                <Link 
-                  to="/tech-explanation"
-                  className="text-gray-700 hover:text-blue-600 transition-colors block py-2"
-                >
-                  Technology
-                </Link>
-              </li>
-              <li>
-                <Link 
-                  to="/diagnostic-tool"
-                  className="text-gray-700 hover:text-blue-600 transition-colors block py-2"
-                >
-                  Score Tool
-                </Link>
-              </li>
-            </ul>
-          </nav>
-        )}
       </div>
     </header>
   );
