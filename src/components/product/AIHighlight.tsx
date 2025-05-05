@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-// import { Info } from 'lucide-react'; // 使わないので不要
+// import { Info } from 'lucide-react';
 
 interface AIHighlightProps {
   children: ReactNode;
@@ -8,18 +8,16 @@ interface AIHighlightProps {
 }
 
 const AIHighlight: React.FC<AIHighlightProps> = ({ children, active, tooltip }) => {
-  // active が true の場合でも、スタイルクラスや追加要素なしの
-  // 単純な div でラップするだけにする (デバッグ用)
-  if (active) {
-    return (
-      <div style={{ position: 'relative' }}> {/* 必要最低限のスタイル */}
-        {children}
-      </div>
-    );
+  if (!active) {
+    return <>{children}</>;
   }
 
-  // active でない場合は、そのまま children を返す
-  return <>{children}</>;
+  // ★★★ 最終テスト: スタイル無しの div でラップ ★★★
+  return (
+    <div>
+      {children}
+    </div>
+  );
 };
 
 export default AIHighlight;
