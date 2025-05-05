@@ -1,12 +1,8 @@
-// src/components/home/Hero.tsx (LP風デザイン・翻訳対応版)
-
 import React from 'react';
 import { Link } from 'react-router-dom';
-// import { useAIOptimization } from '../../contexts/AIOptimizationContext'; // 不要なら削除
 import { useLocalization } from '../../contexts/LocalizationContext';
 
 const Hero: React.FC = () => {
-  // const { isOptimized } = useAIOptimization(); // 不要なら削除
   const { t } = useLocalization();
 
   return (
@@ -34,22 +30,26 @@ const Hero: React.FC = () => {
           {/* Call to Action Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
-              to="/" // ★ 要変更: デモページのパスに変更
+              // ★ 修正: 「今すぐデモを見る」ボタンのリンク先
+              to="/products"
               className="px-8 py-3 bg-white text-blue-700 font-bold rounded-lg hover:bg-blue-50 transition-colors text-lg shadow-md"
             >
               {t('hero.cta_button1', '🔹 今すぐデモを見る')}
             </Link>
+            {/* ★ 削除: 「AIOとは？」ボタンを削除 */}
+            {/*
             <Link
               to="/tech-explanation" // AIOとは？のリンク先
               className="px-8 py-3 border-2 border-white text-white font-bold rounded-lg hover:bg-white hover:text-blue-700 transition-colors text-lg"
             >
               {t('hero.cta_button2', '🔹 AIOとは？')}
             </Link>
+            */}
           </div>
         </div>
       </div>
 
-      {/* AIO Explanation Box (Hero下 or スクロール直後 - ここではHeroの直下に配置) */}
+      {/* AIO Explanation Box */}
       <div className="bg-white py-12">
         <div className="container mx-auto px-4 max-w-3xl">
           <div className="bg-blue-50 border border-blue-200 rounded-lg p-6 shadow">
