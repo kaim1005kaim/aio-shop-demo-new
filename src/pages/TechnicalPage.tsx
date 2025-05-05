@@ -45,14 +45,13 @@ const TechnicalPage: React.FC = () => {
           </div>
 
           <div className="mb-12">
-            <h2 className="text-2xl font-bold mb-4">Key Optimization Elements</h2>
+            <h2 className="text-2xl font-bold mb-4">{t('technical_page.key_elements.headline', 'Key Optimization Elements')}</h2>
             
             <div className="space-y-8">
               <div className="bg-blue-50 border border-blue-100 rounded-lg p-6">
-                <h3 className="text-xl font-semibold mb-3">Structured Data (JSON-LD)</h3>
+                <h3 className="text-xl font-semibold mb-3">{t('technical_page.key_elements.structured_data.title', 'Structured Data (JSON-LD)')}</h3>
                 <p className="text-gray-700 mb-4">
-                  Implementing schema.org markup in JSON-LD format helps AI systems understand the product information 
-                  in a standardized way. This is perhaps the most critical element of AI optimization.
+                  {t('technical_page.key_elements.structured_data.description', 'Implementing schema.org markup in JSON-LD format helps AI systems understand the product information in a standardized way. This is perhaps the most critical element of AI optimization.')}
                 </p>
                 <div className="bg-gray-800 text-gray-200 p-4 rounded overflow-x-auto text-sm">
                   <pre>
@@ -85,20 +84,19 @@ const TechnicalPage: React.FC = () => {
               </div>
               
               <div className="bg-blue-50 border border-blue-100 rounded-lg p-6">
-                <h3 className="text-xl font-semibold mb-3">Rich Image Alt Text</h3>
+                <h3 className="text-xl font-semibold mb-3">{t('technical_page.key_elements.rich_image.title', 'Rich Image Alt Text')}</h3>
                 <p className="text-gray-700 mb-4">
-                  AI systems rely heavily on alt text to understand images. Instead of generic alt text, 
-                  provide detailed, descriptive text that includes the product name, key features, and context.
+                  {t('technical_page.key_elements.rich_image.description', 'AI systems rely heavily on alt text to understand images. Instead of generic alt text, provide detailed, descriptive text that includes the product name, key features, and context.')}
                 </p>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <h4 className="font-medium text-gray-900 mb-2">Standard Alt Text:</h4>
+                    <h4 className="font-medium text-gray-900 mb-2">{t('technical_page.key_elements.rich_image.standard', 'Standard Alt Text:')}</h4>
                     <div className="bg-gray-800 text-gray-200 p-4 rounded text-sm">
                       <code>alt="LED facial device"</code>
                     </div>
                   </div>
                   <div>
-                    <h4 className="font-medium text-gray-900 mb-2">AI-Optimized Alt Text:</h4>
+                    <h4 className="font-medium text-gray-900 mb-2">{t('technical_page.key_elements.rich_image.optimized', 'AI-Optimized Alt Text:')}</h4>
                     <div className="bg-gray-800 text-gray-200 p-4 rounded text-sm">
                       <code>alt="Advanced LED Facial Device with 5 light therapy modes for anti-aging, acne treatment, and skin rejuvenation"</code>
                     </div>
@@ -107,10 +105,9 @@ const TechnicalPage: React.FC = () => {
               </div>
               
               <div className="bg-blue-50 border border-blue-100 rounded-lg p-6">
-                <h3 className="text-xl font-semibold mb-3">FAQ Schema Implementation</h3>
+                <h3 className="text-xl font-semibold mb-3">{t('technical_page.key_elements.faq_schema.title', 'FAQ Schema Implementation')}</h3>
                 <p className="text-gray-700 mb-4">
-                  FAQs not only help users but also provide AI systems with question-answer pairs that can be 
-                  directly cited when users ask related questions.
+                  {t('technical_page.key_elements.faq_schema.description', 'FAQs not only help users but also provide AI systems with question-answer pairs that can be directly cited when users ask related questions.')}
                 </p>
                 <div className="bg-gray-800 text-gray-200 p-4 rounded overflow-x-auto text-sm">
                   <pre>
