@@ -1,4 +1,4 @@
-// src/pages/ProductDetailPage.tsx (修正後・全文)
+// src/pages/ProductDetailPage.tsx
 
 import React from 'react';
 import { useParams } from 'react-router-dom';
@@ -15,15 +15,15 @@ import ARViewer from '../components/product/ARViewer';
 
 // データとContextをインポート
 import { products } from '../data/products';
-import { categories, Category } from '../data/categories'; // ★ カテゴリデータと型(必要なら)をインポート
+import { categories } from '../data/categories';
 import { useAIOptimization } from '../contexts/AIOptimizationContext';
 import { useLocalization } from '../contexts/LocalizationContext';
-import { Product } from '../types/product'; // Product型をインポート
+import { Product } from '../types/product';
 
 const ProductDetailPage: React.FC = () => {
   const { productId } = useParams<{ productId: string }>();
   const { isOptimized, toggleOptimization } = useAIOptimization();
-  const { t } = useLocalization(); // t関数を取得
+  const { t } = useLocalization();
 
   // 商品データを検索
   const product: Product | undefined = products.find(p => p.id === productId);
@@ -37,18 +37,12 @@ const ProductDetailPage: React.FC = () => {
     );
   }
 
-  // ★ categoryId を使ってカテゴリ情報を検索
-  const category = categories.find(c => c.id === product.categoryId);
-  // ★ category オブジェクトの nameKey を t 関数に渡して翻訳された名前を取得
-  const categoryName = category ? t(`category.${category.id}.name`) : t('unknown_category', '不明なカテゴリ');
-
   return (
     <>
       <Helmet>
         <title>
           {isOptimized
-            // ★ 修正: categoryName を使用
-            ? `${product.name || ''} | ${product.brand || ''} | ${categoryName} | ${t('site_name', 'AIO Shop Demo')}`
+            ? `${product.name || ''} | ${product.brand || ''} | ${t('ec_demo', 'ECサイトデモ')} | ${t('site_name', 'AIO Shop Demo')}`
             : `${product.name || ''} - ${t('site_name', 'AIO Shop Demo')}`
           }
         </title>
@@ -84,8 +78,8 @@ const ProductDetailPage: React.FC = () => {
           <Breadcrumbs
             items={[
               { name: t('home', 'ホーム'), path: '/' },
-              // ★ 修正: categoryName と product.categoryId を使用
-              { name: categoryName, path: `/category/${product.categoryId}` },
+              // カテゴリを「ECサイトデモ」に変更
+              { name: t('ec_demo', 'ECサイトデモ'), path: '/products' },
               { name: product.name || '', path: `/product/${product.id}` }
             ]}
           />
@@ -94,7 +88,6 @@ const ProductDetailPage: React.FC = () => {
           <div className="flex items-center">
              <div className="flex items-center bg-gray-100 p-1 rounded-md">
                <button
-                 // isOptimized の値を反転させて toggleOptimization に渡す
                  onClick={() => toggleOptimization(!isOptimized)}
                  className={`px-3 py-1.5 rounded-md text-sm font-medium transition-colors ${
                    isOptimized
@@ -102,11 +95,9 @@ const ProductDetailPage: React.FC = () => {
                      : 'bg-transparent text-gray-700'
                  }`}
                >
-                 {/* ボタンテキストを翻訳対応 */}
                  {t('product_detail.optimization.optimized', '最適化あり')}
                </button>
                <button
-                 // isOptimized の値を反転させて toggleOptimization に渡す
                  onClick={() => toggleOptimization(!isOptimized)}
                  className={`px-3 py-1.5 rounded-md text-sm font-medium transition-colors ${
                    !isOptimized
@@ -114,12 +105,10 @@ const ProductDetailPage: React.FC = () => {
                      : 'bg-transparent text-gray-700'
                  }`}
                >
-                 {/* ボタンテキストを翻訳対応 */}
                  {t('product_detail.optimization.standard', '最適化なし')}
                </button>
              </div>
              <span className="ml-3 text-sm text-gray-500">
-               {/* 状態テキストを翻訳対応 */}
                {isOptimized 
                  ? t('product_detail.optimization.status_optimized', 'AI推薦に最適化されたコンテンツを表示中')
                  : t('product_detail.optimization.status_standard', '基本的なコンテンツを表示中')
@@ -129,9 +118,6 @@ const ProductDetailPage: React.FC = () => {
         </div>
 
         {/* 商品ギャラリーと情報 */}
-        {/* 注意: ProductGallery や ProductInfo 内でカテゴリ名を表示する場合、
-            それらのコンポーネントにも categoryName を渡すか、
-            あるいは product と categories を渡してコンポーネント内部で名前を検索・翻訳する必要があります */}
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 mt-6 mb-12">
           <ProductGallery product={product} />
           <ProductInfo product={product} />
@@ -140,14 +126,11 @@ const ProductDetailPage: React.FC = () => {
         {/* その他のコンポーネント */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
            <AIRecommendationScore product={product} />
-           {/* isOptimized が true の場合に ARViewer を表示 */}
-           {/* ★ 修正: ARViewer には product オブジェクトを渡す */}
            {isOptimized && product && <ARViewer product={product} />}
          </div>
 
          <SuggestedPrompts product={product} />
          <ProductFAQ product={product} />
-         {/* ProductComparison に product を渡す */}
          <ProductComparison currentProduct={product} />
          <StructuredDataViewer product={product} />
       </div>

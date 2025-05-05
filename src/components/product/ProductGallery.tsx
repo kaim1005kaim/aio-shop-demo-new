@@ -6,7 +6,7 @@ import AIHighlight from './AIHighlight';
 // 画像のフォールバック機能
 const getImageWithFallback = (url: string, index: number) => {
   // 無料の画像サービスから代替画像のURLを生成
-  const fallbackUrl = `https://source.unsplash.com/random/800x600/?product,${index}`;
+  const fallbackUrl = `https://source.unsplash.com/random/800x800/?product,${index}`;
   
   return {
     src: url,
@@ -31,11 +31,13 @@ const ProductGallery: React.FC<ProductGalleryProps> = ({ product }) => {
   return (
     <div className="lg:col-span-2">
       <div className="mb-4 bg-white rounded-lg overflow-hidden border border-gray-200">
-        <img
-          {...getImageWithFallback(product.images[selectedImage], selectedImage)}
-          className="w-full h-96 object-cover"
-          alt={isOptimized ? product.optimizedImageAlts[selectedImage] : product.imageAlts[selectedImage]}
-        />
+        <div className="relative pb-[100%]"> {/* 1:1のアスペクト比を確保するためのラッパー */}
+          <img
+            {...getImageWithFallback(product.images[selectedImage], selectedImage)}
+            className="absolute top-0 left-0 w-full h-full object-cover"
+            alt={isOptimized ? product.optimizedImageAlts[selectedImage] : product.imageAlts[selectedImage]}
+          />
+        </div>
       </div>
       
       <div className="grid grid-cols-3 gap-2">
@@ -49,11 +51,13 @@ const ProductGallery: React.FC<ProductGalleryProps> = ({ product }) => {
               className={`bg-white rounded-lg overflow-hidden border ${selectedImage === index ? 'border-blue-500' : 'border-gray-200'}`}
               onClick={() => setSelectedImage(index)}
             >
-              <img
-                {...getImageWithFallback(image, index)}
-                className="w-full h-24 object-cover"
-                alt={isOptimized ? product.optimizedImageAlts[index] : product.imageAlts[index]}
-              />
+              <div className="relative pb-[100%]"> {/* サムネイルも1:1のアスペクト比に */}
+                <img
+                  {...getImageWithFallback(image, index)}
+                  className="absolute top-0 left-0 w-full h-full object-cover"
+                  alt={isOptimized ? product.optimizedImageAlts[index] : product.imageAlts[index]}
+                />
+              </div>
             </button>
           </AIHighlight>
         ))}
