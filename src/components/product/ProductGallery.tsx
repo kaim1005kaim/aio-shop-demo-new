@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { useAIOptimization } from '../../contexts/AIOptimizationContext';
 import { Product } from '../../types/product';
-import { Info } from 'lucide-react'; // Info アイコンは引き続き使用
+import { Info } from 'lucide-react';
 
 // 画像のフォールバック機能 (変更なし)
 const getImageWithFallback = (url: string, index: number) => {
   const fallbackUrl = `https://source.unsplash.com/random/800x800/?product,${index}`;
   return {
-    src: url || fallbackUrl, // urlが空の場合も考慮
+    src: url || fallbackUrl,
     onError: (e: React.SyntheticEvent<HTMLImageElement>) => {
       const target = e.target as HTMLImageElement;
       if (target.src !== fallbackUrl) {
@@ -18,39 +18,29 @@ const getImageWithFallback = (url: string, index: number) => {
   };
 };
 
-interface ProductGalleryProps {
-  product: Product;
-}
+interface ProductGalleryProps { product: Product; }
 
 const ProductGallery: React.FC<ProductGalleryProps> = ({ product }) => {
   const { isOptimized } = useAIOptimization();
   const [selectedImage, setSelectedImage] = useState(0);
 
-  // サムネイルボタンに適用するクラスを動的に生成する関数
+  // ボタンクラス生成関数 (変更なし)
   const getThumbnailButtonClasses = (index: number): string => {
     let baseClasses = "bg-white rounded-lg overflow-hidden border";
     let borderClass = selectedImage === index ? 'border-blue-500' : 'border-gray-200';
     let highlightClasses = "";
-
-    // ★ isOptimized が true の場合にハイライト用のクラスを追加
     if (isOptimized) {
-      // group: ツールチップ表示用, relative: アイコン/ツールチップ配置用
-      // ai-highlight-active: 青い枠線用 (CSSで定義されている想定)
-      highlightClasses = "group relative ai-highlight ai-highlight-active";
+      highlightClasses = "group relative ai-highlight ai-highlight-active"; // CSSでスタイル定義が必要
     }
-
     return `${baseClasses} ${borderClass} ${highlightClasses}`;
   };
 
-  // ツールチップのテキストを取得する関数
+  // ツールチップテキスト取得関数 (変更なし)
   const getTooltipText = (): string => {
-    // ★ 翻訳キーを使う場合は t() 関数をここで使う
-    // const { t } = useLocalization(); // 必要ならインポート
-    // return isOptimized ? t('tooltip.optimized_alt', "最適化されたalt属性") : t('tooltip.basic_alt', "基本的なalt属性");
-    return isOptimized ? "最適化されたalt属性" : "基本的なalt属性"; // とりあえずハードコード
+    return isOptimized ? "最適化されたalt属性" : "基本的なalt属性";
   };
 
-  // メイン画像、altテキストの取得 (存在しない場合を考慮)
+  // メイン画像、altテキストの取得 (変更なし)
   const mainImageSrc = product.images?.[selectedImage];
   const mainImageAlt = isOptimized
     ? product.optimizedImageAlts?.[selectedImage] || product.name
@@ -60,16 +50,15 @@ const ProductGallery: React.FC<ProductGalleryProps> = ({ product }) => {
     <div className="lg:col-span-2">
       {/* === メイン画像表示 === */}
       <div className="mb-4 bg-white rounded-lg overflow-hidden border border-gray-200">
-        <div className="relative pb-[100%]"> {/* 1:1 アスペクト比 */}
+        <div className="relative pb-[100%]">
           {mainImageSrc ? (
             <img
-              key={selectedImage} // selectedImage が変わったら img を強制再描画
+              key={selectedImage}
               {...getImageWithFallback(mainImageSrc, selectedImage)}
               className="absolute top-0 left-0 w-full h-full object-cover"
               alt={mainImageAlt || 'Product image'}
             />
           ) : (
-            // 画像がない場合のプレースホルダー
             <div className="absolute top-0 left-0 w-full h-full bg-gray-200 flex items-center justify-center text-gray-500">No Image</div>
           )}
         </div>
@@ -78,39 +67,47 @@ const ProductGallery: React.FC<ProductGalleryProps> = ({ product }) => {
       {/* === サムネイル表示 === */}
       <div className="grid grid-cols-3 gap-2">
         {product.images && product.images.map((image, index) => {
-          // サムネイル用 alt テキスト
-          const thumbAlt = isOptimized
-            ? product.optimizedImageAlts?.[index] || `Optimized View ${index + 1}`
-            : product.imageAlts?.[index] || `View ${index + 1}`;
+          // ★ 最適化altテキストを取得（オーバーレイとalt属性で使用）
+          const optimizedAltText = product.optimizedImageAlts?.[index] || '';
+          const standardAltText = product.imageAlts?.[index] || `View ${index + 1}`;
+          const currentAltText = isOptimized ? optimizedAltText : standardAltText;
 
           return (
-            // ★ ラップせず、button に直接クラスと要素を追加
             <button
               key={index}
-              className={getThumbnailButtonClasses(index)} // 動的にクラスを設定
+              className={getThumbnailButtonClasses(index)}
               onClick={() => setSelectedImage(index)}
+              aria-label={`View image ${index + 1}`} // アクセシビリティ向上
             >
-              {/* ★ 最適化ONの時だけアイコンを表示 */}
+              {/* 最適化ONの時だけアイコンを表示 (位置修正済み) */}
               {isOptimized && (
-                <div className="absolute -top-1.5 -right-1.5 bg-blue-500 rounded-full p-0.5 text-white opacity-90 z-10" aria-hidden="true">
+                <div className="absolute top-1 right-1 bg-blue-500 rounded-full p-0.5 text-white opacity-90 z-10" aria-hidden="true">
                   <Info className="h-3.5 w-3.5" />
                 </div>
               )}
 
-              {/* サムネイル画像 (アスペクト比維持) */}
-              <div className="relative pb-[100%]">
+              {/* サムネイル画像とオーバーレイのコンテナ */}
+              {/* ↓↓↓ divにクラス thumbnail-container を追加 ↓↓↓ */}
+              <div className="relative pb-[100%] thumbnail-container">
                 {image ? (
                    <img
                      {...getImageWithFallback(image, index)}
                      className="absolute top-0 left-0 w-full h-full object-cover"
-                     alt={thumbAlt}
+                     alt={currentAltText} // isOptimized に応じたaltを設定
                    />
                  ) : (
-                   <div className="absolute top-0 left-0 w-full h-full bg-gray-100"></div> // 画像URLがない場合のプレースホルダー
+                   <div className="absolute top-0 left-0 w-full h-full bg-gray-100"></div>
                  )}
+                {/* ↓↓↓ 最適化ONの時だけオーバーレイ span を追加 ↓↓↓ */}
+                {isOptimized && optimizedAltText && (
+                  <span className="thumbnail-overlay">
+                    {optimizedAltText} {/* 最適化altテキストを表示 */}
+                  </span>
+                )}
+                {/* ↑↑↑ オーバーレイ span を追加 ↑↑↑ */}
               </div>
 
-              {/* ★ 最適化ONの時だけツールチップ用 span を表示 */}
+              {/* 最適化ONの時だけツールチップ用 span を表示 (変更なし) */}
               {isOptimized && (
                 <span className="tooltip top-0 left-1/2 -translate-x-1/2 -translate-y-full">
                   {getTooltipText()}
