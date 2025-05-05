@@ -36,15 +36,11 @@ const TechnicalPage: React.FC = () => {
               {t('technical_page.understanding.paragraph2', 'When these AI systems analyze product pages to make recommendations, they prioritize pages that:')}
             </p>
             <ul className="list-disc pl-6 space-y-2 text-gray-700 mb-4">
-              {t('technical_page.understanding.list', [
-                'Have clear, structured information that can be easily parsed',
-                'Provide comprehensive product details rather than marketing fluff',
-                'Include technical specifications in a standardized format',
-                'Answer common questions about the product',
-                'Contain proper metadata and image descriptions'
-              ]).map((item, index) => (
-                <li key={index}>{item}</li>
-              ))}
+              <li>{t('technical_page.understanding.list.item1', 'Have clear, structured information that can be easily parsed')}</li>
+              <li>{t('technical_page.understanding.list.item2', 'Provide comprehensive product details rather than marketing fluff')}</li>
+              <li>{t('technical_page.understanding.list.item3', 'Include technical specifications in a standardized format')}</li>
+              <li>{t('technical_page.understanding.list.item4', 'Answer common questions about the product')}</li>
+              <li>{t('technical_page.understanding.list.item5', 'Contain proper metadata and image descriptions')}</li>
             </ul>
           </div>
 
@@ -194,27 +190,55 @@ const TechnicalPage: React.FC = () => {
             <h2 className="text-2xl font-bold mb-4">{t('technical_page.checklist.headline', 'Implementation Checklist')}</h2>
             
             <div className="space-y-4">
-              {t('technical_page.checklist.items', [
-                { title: "Implement JSON-LD Structured Data", description: "Include complete Product schema with all available fields including offers, brand, and ratings." },
-                { title: "Optimize Product Descriptions", description: "Include specific details, measurements, materials, and use cases rather than vague marketing language." },
-                { title: "Add Detailed Alt Text for All Images", description: "Include product name, key features, and relevant context in alt text for all product images." },
-                { title: "Implement FAQ Schema", description: "Create comprehensive FAQs addressing common questions, with detailed answers." },
-                { title: "Organize Content with Semantic HTML", description: "Use proper H1-H6 headings, lists, tables, and semantic elements for content organization." },
-                { title: "Create Specification Tables", description: "Present technical specifications in a structured table format with clear labels." },
-                { title: "Add Comparative Information", description: "Provide clear comparisons with similar products or previous versions to help position the product." }
-              ]).map((item, index) => (
-                <div key={index} className="flex items-start">
-                  <div className="h-6 w-6 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-medium mr-3 flex-shrink-0">
-                    {index + 1}
-                  </div>
-                  <div>
-                    <h3 className="font-medium text-gray-900">{item.title}</h3>
-                    <p className="text-gray-700">
-                      {item.description}
-                    </p>
-                  </div>
+              <div className="flex items-start">
+                <div className="h-6 w-6 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-medium mr-3 flex-shrink-0">1</div>
+                <div>
+                  <h3 className="font-medium text-gray-900">{t('technical_page.checklist.items.title1', 'Implement JSON-LD Structured Data')}</h3>
+                  <p className="text-gray-700">{t('technical_page.checklist.items.description1', 'Include complete Product schema with all available fields including offers, brand, and ratings.')}</p>
                 </div>
-              ))}
+              </div>
+              <div className="flex items-start">
+                <div className="h-6 w-6 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-medium mr-3 flex-shrink-0">2</div>
+                <div>
+                  <h3 className="font-medium text-gray-900">{t('technical_page.checklist.items.title2', 'Optimize Product Descriptions')}</h3>
+                  <p className="text-gray-700">{t('technical_page.checklist.items.description2', 'Include specific details, measurements, materials, and use cases rather than vague marketing language.')}</p>
+                </div>
+              </div>
+              <div className="flex items-start">
+                <div className="h-6 w-6 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-medium mr-3 flex-shrink-0">3</div>
+                <div>
+                  <h3 className="font-medium text-gray-900">{t('technical_page.checklist.items.title3', 'Add Detailed Alt Text for All Images')}</h3>
+                  <p className="text-gray-700">{t('technical_page.checklist.items.description3', 'Include product name, key features, and relevant context in alt text for all product images.')}</p>
+                </div>
+              </div>
+              <div className="flex items-start">
+                <div className="h-6 w-6 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-medium mr-3 flex-shrink-0">4</div>
+                <div>
+                  <h3 className="font-medium text-gray-900">{t('technical_page.checklist.items.title4', 'Implement FAQ Schema')}</h3>
+                  <p className="text-gray-700">{t('technical_page.checklist.items.description4', 'Create comprehensive FAQs addressing common questions, with detailed answers.')}</p>
+                </div>
+              </div>
+              <div className="flex items-start">
+                <div className="h-6 w-6 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-medium mr-3 flex-shrink-0">5</div>
+                <div>
+                  <h3 className="font-medium text-gray-900">{t('technical_page.checklist.items.title5', 'Organize Content with Semantic HTML')}</h3>
+                  <p className="text-gray-700">{t('technical_page.checklist.items.description5', 'Use proper H1-H6 headings, lists, tables, and semantic elements for content organization.')}</p>
+                </div>
+              </div>
+              <div className="flex items-start">
+                <div className="h-6 w-6 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-medium mr-3 flex-shrink-0">6</div>
+                <div>
+                  <h3 className="font-medium text-gray-900">{t('technical_page.checklist.items.title6', 'Create Specification Tables')}</h3>
+                  <p className="text-gray-700">{t('technical_page.checklist.items.description6', 'Present technical specifications in a structured table format with clear labels.')}</p>
+                </div>
+              </div>
+              <div className="flex items-start">
+                <div className="h-6 w-6 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-medium mr-3 flex-shrink-0">7</div>
+                <div>
+                  <h3 className="font-medium text-gray-900">{t('technical_page.checklist.items.title7', 'Add Comparative Information')}</h3>
+                  <p className="text-gray-700">{t('technical_page.checklist.items.description7', 'Provide clear comparisons with similar products or previous versions to help position the product.')}</p>
+                </div>
+              </div>
             </div>
           </div>
           
@@ -224,14 +248,10 @@ const TechnicalPage: React.FC = () => {
               {t('technical_page.testing.description', 'After implementing these optimizations, you can test their effectiveness by:')}
             </p>
             <ul className="list-disc pl-6 space-y-2 text-gray-700">
-              {t('technical_page.testing.list', [
-                'Using our AI Optimization Score Tool to evaluate your page\'s readiness',
-                'Testing with various AI shopping assistants to see if your product is recommended',
-                'Validating your structured data with Google\'s Rich Results Test and Schema.org Validator',
-                'Monitoring changes in traffic and conversion rates from AI-powered search tools'
-              ]).map((item, index) => (
-                <li key={index}>{item}</li>
-              ))}
+              <li>{t('technical_page.testing.list.item1', 'Using our AI Optimization Score Tool to evaluate your page\'s readiness')}</li>
+              <li>{t('technical_page.testing.list.item2', 'Testing with various AI shopping assistants to see if your product is recommended')}</li>
+              <li>{t('technical_page.testing.list.item3', 'Validating your structured data with Google\'s Rich Results Test and Schema.org Validator')}</li>
+              <li>{t('technical_page.testing.list.item4', 'Monitoring changes in traffic and conversion rates from AI-powered search tools')}</li>
             </ul>
           </div>
           
