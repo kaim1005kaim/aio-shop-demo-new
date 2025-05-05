@@ -201,7 +201,6 @@ const translations: { [locale: string]: LocaleData } = {
       off: "AI最適化: OFF"
     },
 
-    // Category Data (Name and Description) - Japanese
     category: {
       beauty: {
         name: "ビューティー",
