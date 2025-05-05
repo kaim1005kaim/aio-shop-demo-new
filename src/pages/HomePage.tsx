@@ -25,7 +25,6 @@ const HomePage: React.FC = () => {
       {/* ↓これらのコンポーネント内部でも同様に t() を使う修正が必要です↓ */}
       <Hero />
       <FeaturedProducts />
-      <CategoryHighlights />
       {/* ↑これらのコンポーネント内部でも同様に t() を使う修正が必要です↑ */}
 
       <section className="py-16 bg-white">

@@ -8,6 +8,17 @@ interface LocaleData {
 // 各言語の翻訳データ
 const translations: { [locale: string]: LocaleData } = {
   en: {
+    // 商品一覧ページ
+    all_products: {
+      meta: {
+        title: "ECサイトデモ - 商品一覧",
+        description: "AI最適化をデモンストレーションする商品一覧をご覧ください。"
+      },
+      hero: {
+        headline: "ECサイトデモ商品",
+        subheadline: "AI最適化された商品ページのショーケースをご覧ください"
+      }
+    },
     // Header links & Site Name
     site_name: "AIO Shop Demo",
     home: "Home",
@@ -185,6 +196,17 @@ const translations: { [locale: string]: LocaleData } = {
     farewell: "Goodbye",
   },
   ja: {
+    // 商品一覧ページ
+    all_products: {
+      meta: {
+        title: "ECサイトデモ - 商品一覧",
+        description: "AI最適化をデモンストレーションする商品一覧をご覧ください。"
+      },
+      hero: {
+        headline: "ECサイトデモ商品",
+        subheadline: "AI最適化された商品ページのショーケースをご覧ください"
+      }
+    },
     // Header links & Site Name
     site_name: "AIOデモショップ",
     home: "ホーム",

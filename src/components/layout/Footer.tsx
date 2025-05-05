@@ -11,7 +11,7 @@ const Footer: React.FC = () => {
   return (
     <footer className="bg-white border-t border-gray-200 py-8">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div>
             {/* ★ t 関数を使用 */}
             <h3 className="text-lg font-semibold mb-4">{t('footer.title', 'AIO Shop')}</h3>
@@ -34,23 +34,13 @@ const Footer: React.FC = () => {
 
           <div>
             {/* ★ t 関数を使用 */}
-            <h3 className="text-lg font-semibold mb-4">{t('footer.categories.title', 'Categories')}</h3>
-            <ul className="space-y-2">
-              {/* ★ categories 配列を map してリンクを生成し、名前を翻訳 */}
-              {categories.map(category => (
-                <li key={category.id}>
-                  <Link to={`/category/${category.id}`} className="text-gray-600 hover:text-blue-600 transition-colors">
-                    {t(category.nameKey)}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            {/* ★ t 関数を使用 */}
             <h3 className="text-lg font-semibold mb-4">{t('footer.resources.title', 'Resources')}</h3>
             <ul className="space-y-2">
+              <li>
+                <Link to="/" className="text-gray-600 hover:text-blue-600 transition-colors">
+                  ECサイトデモ
+                </Link>
+              </li>
               <li>
                 <Link to="/tech-explanation" className="text-gray-600 hover:text-blue-600 transition-colors">
                   {/* ★ 既存のヘッダー用キーを流用 */}

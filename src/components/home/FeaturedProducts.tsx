@@ -85,8 +85,7 @@ const FeaturedProducts: React.FC = () => {
         <div className="text-center mt-10">
           {/* "View All Products" のキーを localization.ts に追加するか、カテゴリへのリンクを見直す */}
           <Link
-            // 例えば最初のカテゴリへのリンクにするなど
-            to="/category/beauty"
+            to="/"
             className="inline-flex px-6 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors"
           >
             {/* ★ t 関数を使用 (新しいキー 'featured.button_all' を localization.ts に追加) */}

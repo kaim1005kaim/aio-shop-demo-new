@@ -20,18 +20,8 @@ const Header: React.FC = () => {
           
           <nav className="hidden md:flex space-x-6">
             <Link to="/" className="text-gray-700 hover:text-blue-600">
-              {t('home')}
+              ECサイトデモ
             </Link>
-                        {/* カテゴリリンクを動的に生成 */}
-            {categories.map((category) => (
-              <Link
-                key={category.id}
-                to={`/category/${category.id}`}
-                className="text-gray-700 hover:text-blue-600"
-              >
-                {t(`category.${category.id}.name`)}
-              </Link>
-            ))}
             <Link to="/tech-explanation" className="text-gray-700 hover:text-blue-600">
               {t('tech_explanation')}
             </Link>

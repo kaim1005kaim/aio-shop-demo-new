@@ -7,6 +7,7 @@ import CategoryPage from './pages/CategoryPage';
 import ProductDetailPage from './pages/ProductDetailPage';
 import TechnicalPage from './pages/TechnicalPage';
 import DiagnosticTool from './pages/DiagnosticTool';
+import AllProductsPage from './pages/AllProductsPage';
 import { AIOptimizationProvider } from './contexts/AIOptimizationContext';
 import { LocalizationProvider } from './contexts/LocalizationContext';
 
@@ -18,7 +19,8 @@ function App() {
           <Router>
             <Layout>
               <Routes>
-                <Route path="/" element={<HomePage />} />
+                <Route path="/" element={<AllProductsPage />} />
+                <Route path="/home" element={<HomePage />} />
                 <Route path="/category/:categoryId" element={<CategoryPage />} />
                 <Route path="/product/:productId" element={<ProductDetailPage />} />
                 <Route path="/tech-explanation" element={<TechnicalPage />} />
