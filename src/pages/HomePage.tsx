@@ -2,9 +2,9 @@ import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import Hero from '../components/home/Hero';
 import FeaturedProducts from '../components/home/FeaturedProducts';
-import CategoryHighlights from '../components/home/CategoryHighlights';
+// ★ 削除: import CategoryHighlights from '../components/home/CategoryHighlights';
 import { useLocalization } from '../contexts/LocalizationContext';
-import { Link } from 'react-router-dom'; // Link をインポート
+import { Link } from 'react-router-dom';
 
 const HomePage: React.FC = () => {
   const { t } = useLocalization();
@@ -21,8 +21,9 @@ const HomePage: React.FC = () => {
 
       <Hero />
       <FeaturedProducts />
-      <CategoryHighlights />
+      {/* ★ 削除: <CategoryHighlights /> */}
 
+      {/* Why AI Optimization Matters セクションは残す */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4 max-w-4xl">
           <div className="text-center mb-12">
@@ -31,7 +32,6 @@ const HomePage: React.FC = () => {
               {t('homepage.why_optimize.subheadline', 'As AI shopping assistants become mainstream...')}
             </p>
           </div>
-
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {/* Point 1 */}
             <div className="text-center p-6 rounded-lg bg-blue-50">
@@ -64,14 +64,11 @@ const HomePage: React.FC = () => {
               </p>
             </div>
           </div>
-
           <div className="mt-12 text-center">
-             {/* ★ 修正: 「仕組みを見る」ボタンを Link にし、リンク先を確認 */}
             <Link
-              to="/tech-explanation" // ← リンク先を /tech-explanation に
+              to="/tech-explanation"
               className="inline-flex px-6 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors"
             >
-              {/* キーは homepage.why_optimize.button か hero.button2 を使う */}
               {t('homepage.why_optimize.button', 'Learn How It Works')}
             </Link>
           </div>
